@@ -8,6 +8,7 @@ langue est de demander à votre ordinateur de dire "Hello, World!".
 
 C'est facile avec MicroPython::
 
+.. code:: python
     from microbit import *
     display.scroll("Hello, World!")
 
@@ -58,8 +59,8 @@ indice, vous devez changer l'argument de la méthode de défilement.
     exemple, ``Microbit``, ``microbit`` et ``microBit`` sont toutes des choses
     différentes pour Python. Si MicroPython se plaint à propos d'un ``NameError``
     c'est probablement parce que vous avez tapé quelque chose de manière incorrecte.
-     C'est comme la différence entre faire référence à "Nicholas" et "Nicolas".
-     Ils sont deux personnes différentes mais leurs noms sont très similaires.
+    C'est comme la différence entre faire référence à "Nicholas" et "Nicolas".
+    Ils sont deux personnes différentes mais leurs noms sont très similaires.
 
     Si MicroPython se plaint de ``SyntaxError`` ous avez simplement tapé du
     code d'une manière que MicroPython ne peut pas comprendre. Vérifiez que
@@ -72,4 +73,4 @@ indice, vous devez changer l'argument de la méthode de défilement.
     essayez de le rallumer. En d'autres termes, débranchez le câble USB (et le
     câble de la batterie s'il est connecté), puis rebranchez le câble. Vous
     devrez peut-être également quitter et redémarrer votre application d'éditeur
-     de code.
+    de code.
