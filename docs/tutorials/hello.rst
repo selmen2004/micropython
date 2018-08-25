@@ -47,19 +47,19 @@ indice, vous devez changer l'argument de la méthode de défilement.
 
 .. warning::
 
-Cela peut ne pas fonctionner. :-)
+    Cela peut ne pas fonctionner. :-)
 
-C'est là que les choses amusantes commencent et que MicroPython essaie d'être utile.
-S'il rencontre une erreur, il fera défiler un message utile sur l'écran du
-micro-bit. Si c'est le cas, il vous indiquera le numéro de ligne où l'erreur
-peut être trouvée.
+    C'est là que les choses amusantes commencent et que MicroPython essaie d'être utile.
+    S'il rencontre une erreur, il fera défiler un message utile sur l'écran du
+    micro-bit. Si c'est le cas, il vous indiquera le numéro de ligne où l'erreur
+    peut être trouvée.
 
-Python s'attend à ce que vous tapiez EXACTEMENT la bonne chose. Ainsi, par
-exemple, ``Microbit``, ``microbit`` et ``microBit`` sont toutes des choses
-différentes pour Python. Si MicroPython se plaint à propos d'un ``NameError``
-c'est probablement parce que vous avez tapé quelque chose de manière incorrecte.
- C'est comme la différence entre faire référence à "Nicholas" et "Nicolas".
- Ils sont deux personnes différentes mais leurs noms sont très similaires.
+    Python s'attend à ce que vous tapiez EXACTEMENT la bonne chose. Ainsi, par
+    exemple, ``Microbit``, ``microbit`` et ``microBit`` sont toutes des choses
+    différentes pour Python. Si MicroPython se plaint à propos d'un ``NameError``
+    c'est probablement parce que vous avez tapé quelque chose de manière incorrecte.
+     C'est comme la différence entre faire référence à "Nicholas" et "Nicolas".
+     Ils sont deux personnes différentes mais leurs noms sont très similaires.
 
     Si MicroPython se plaint de ``SyntaxError`` ous avez simplement tapé du
     code d'une manière que MicroPython ne peut pas comprendre. Vérifiez que
