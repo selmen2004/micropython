@@ -1,72 +1,75 @@
 Hello, World!
 -------------
 
-The traditional way to start programming in a new language is to get your
-computer to say, "Hello, World!".
+La manière traditionnelle de commencer la programmation dans une nouvelle
+langue est de demander à votre ordinateur de dire "Hello, World!".
 
 .. image:: ../scroll-hello.gif
 
-This is easy with MicroPython::
+C'est facile avec MicroPython::
 
     from microbit import *
     display.scroll("Hello, World!")
 
-Each line does something special. The first line::
+Chaque ligne fait quelque chose de spécial. La première ligne::
 
     from microbit import *
 
-...tells MicroPython to get all the stuff it needs to work with the BBC
-micro:bit. All this stuff is in a module called ``microbit`` (a module
-is a library of pre-existing code). When you ``import`` something you're telling
-MicroPython that you want to use it, and ``*`` is Python's way to say
-*everything*. So, ``from microbit import *`` means, in English, "I want to be
-able to use everything from the microbit code library".
+    ... demande à MicroPython de récupérer tout ce dont il a besoin pour
+    fonctionner avec le micro:bit BBC. Tout cela se trouve dans un module appelé
+    ``microbit``(un module est une bibliothèque de code préexistant). Quand vous
+    ``import`` quelque chose, vous dites à MicroPython que vous voulez l’utiliser, et
+    ``*``c’est le moyen de Python de dire "tout" . Donc, en français, "je veux pouvoir tout
+     utiliser depuis la bibliothèque de code microbit". ``from microbit import *``
 
-The second line::
+La deuxième ligne::
 
     display.scroll("Hello, World!")
 
-...tells MicroPython to use the display to scroll the string of characters
-"Hello, World!". The ``display`` part of that line is an *object* from the
-``microbit`` module that represents the device's physical display (we say
-"object" instead of "thingy", "whatsit" or "doodah"). We can tell the display
-to do things with a full-stop ``.`` followed by what looks like a command (in
-fact it's something we call a *method*). In this case we're using the
-``scroll`` method. Since ``scroll`` needs to know what characters to scroll
-across the physical display we specify them between double quotes (``"``)
-within parenthesis (``(`` and ``)``). These are called the *arguments*. So,
-``display.scroll("Hello, World!")`` means, in English, "I want you to use the
-display to scroll the text 'Hello, World!'". If a method doesn't need any
-arguments we make this clear by using empty parenthesis like this: ``()``.
+    ... indique à MicroPython d'utiliser l'affichage pour faire défiler la chaîne de caractères "Hello, World!".
+     La partie ``display`` de cette ligne est un *objet* du module ``microbit``
+     qui représente l'affichage physique du périphérique (on dit "objet" au lieu de
+     "chose", "quoi" ou "doodah"). Nous pouvons dire à l'affichage de faire les
+     choses avec un point ``.`` uivi de ce qui ressemble à une commande
+     (en fait, c'est quelque chose que nous appelons une *méthode* ). Dans ce
+      cas, nous utilisons la méthode``scroll``. Puisque ``scroll`` ndoit savoir
+      quels caractères faire défiler l'affichage physique, nous les spécifions
+      entre guillemets ((``"``) entre les parenthèses (``(`` et ``)``). Ce sont
+      les *arguments*. Ainsi,``display.scroll("Hello, World!")`` signifie, en
+      français, "Je veux que tu utilises l'écran pour faire défiler le texte
+      'Hello, World!'". Si une méthode n'a pas besoin d'arguments que nous
+      faisons cela clairement en utilisant des parenthèses vides comme ceci: ``()``.
 
-Copy the "Hello, World!" code into your editor and flash it onto the device.
-Can you work out how to change the message? Can you make it say hello to you?
-For example, I might make it say "Hello, Nicholas!". Here's a clue, you need to
-change the scroll method's argument.
+Copiez le code "Hello, World!" Dans votre éditeur et flashez-le sur le
+périphérique. Pouvez-vous trouver comment changer le message? Peux-tu le faire
+dire bonjour? Par exemple, je pourrais dire "Bonjour, Nicolas!". Voici un
+indice, vous devez changer l'argument de la méthode de défilement.
 
 .. warning::
 
-    It may not work. :-)
+Cela peut ne pas fonctionner. :-)
 
-    This is where things get fun and MicroPython tries to be helpful. If
-    it encounters an error it will scroll a helpful message on the micro:bit's
-    display. If it can, it will tell you the line number for where the error
-    can be found.
+C'est là que les choses amusantes commencent et que MicroPython essaie d'être utile.
+S'il rencontre une erreur, il fera défiler un message utile sur l'écran du
+micro-bit. Si c'est le cas, il vous indiquera le numéro de ligne où l'erreur
+peut être trouvée.
 
-    Python expects you to type **EXACTLY** the right thing. So, for instance,
-    ``Microbit``, ``microbit`` and ``microBit`` are all different things to
-    Python. If MicroPython complains about a ``NameError`` it's probably
-    because you've typed something inaccurately. It's like the difference
-    between referring to "Nicholas" and "Nicolas". They're two different people
-    but their names look very similar.
+Python s'attend à ce que vous tapiez EXACTEMENT la bonne chose. Ainsi, par
+exemple, ``Microbit``, ``microbit`` et ``microBit`` sont toutes des choses
+différentes pour Python. Si MicroPython se plaint à propos d'un ``NameError``
+c'est probablement parce que vous avez tapé quelque chose de manière incorrecte.
+ C'est comme la différence entre faire référence à "Nicholas" et "Nicolas".
+ Ils sont deux personnes différentes mais leurs noms sont très similaires.
 
-    If MicroPython complains about a ``SyntaxError`` you've simply typed code
-    in a way that MicroPython can't understand. Check you're not missing any
-    special characters like ``"`` or ``:``. It's like putting. a full stop in
-    the middle of a sentence. It's hard to understand exactly what you mean.
+    Si MicroPython se plaint de ``SyntaxError`` ous avez simplement tapé du
+    code d'une manière que MicroPython ne peut pas comprendre. Vérifiez que
+    vous ne manquez pas de caractères spéciaux comme ``"`` ou ``:``.  C'est
+    comme mettre un point au milieu d'une phrase. Il est difficile de comprendre
+    exactement ce que vous voulez dire.
 
-    Your microbit may stop responding: you cannot flash new code to it or
-    enter commands into the REPL. If this happens, try power cycling it. That
-    is, unplug the USB cable (and battery cable if it's connected), then plug
-    the cable back in again. You may also need to quit and re-start your code
-    editor application.
+    Votre microbite peut cesser de répondre: vous ne pouvez pas lui envoyer un
+    nouveau code ou entrer des commandes dans le REPL. Si cela se produit,
+    essayez de le rallumer. En d'autres termes, débranchez le câble USB (et le
+    câble de la batterie s'il est connecté), puis rebranchez le câble. Vous
+    devrez peut-être également quitter et redémarrer votre application d'éditeur
+     de code.
