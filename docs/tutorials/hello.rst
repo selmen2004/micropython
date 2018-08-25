@@ -15,30 +15,30 @@ Chaque ligne fait quelque chose de spécial. La première ligne::
 
     from microbit import *
 
-    ... demande à MicroPython de récupérer tout ce dont il a besoin pour
-    fonctionner avec le micro:bit BBC. Tout cela se trouve dans un module appelé
-    ``microbit``(un module est une bibliothèque de code préexistant). Quand vous
-    ``import`` quelque chose, vous dites à MicroPython que vous voulez l’utiliser, et
-    ``*``c’est le moyen de Python de dire "tout" . Donc, en français, "je veux pouvoir tout
-     utiliser depuis la bibliothèque de code microbit". ``from microbit import *``
+... demande à MicroPython de récupérer tout ce dont il a besoin pour
+fonctionner avec le micro:bit BBC. Tout cela se trouve dans un module appelé
+``microbit``(un module est une bibliothèque de code préexistant). Quand vous
+``import`` quelque chose, vous dites à MicroPython que vous voulez l’utiliser, et
+``*``c’est le moyen de Python de dire "tout" . Donc, en français, "je veux pouvoir tout
+ utiliser depuis la bibliothèque de code microbit". ``from microbit import *``
 
 La deuxième ligne::
 
     display.scroll("Hello, World!")
 
-    ... indique à MicroPython d'utiliser l'affichage pour faire défiler la chaîne de caractères "Hello, World!".
-     La partie ``display`` de cette ligne est un *objet* du module ``microbit``
-     qui représente l'affichage physique du périphérique (on dit "objet" au lieu de
-     "chose", "quoi" ou "doodah"). Nous pouvons dire à l'affichage de faire les
-     choses avec un point ``.`` uivi de ce qui ressemble à une commande
-     (en fait, c'est quelque chose que nous appelons une *méthode* ). Dans ce
-      cas, nous utilisons la méthode``scroll``. Puisque ``scroll`` ndoit savoir
-      quels caractères faire défiler l'affichage physique, nous les spécifions
-      entre guillemets ((``"``) entre les parenthèses (``(`` et ``)``). Ce sont
-      les *arguments*. Ainsi,``display.scroll("Hello, World!")`` signifie, en
-      français, "Je veux que tu utilises l'écran pour faire défiler le texte
-      'Hello, World!'". Si une méthode n'a pas besoin d'arguments que nous
-      faisons cela clairement en utilisant des parenthèses vides comme ceci: ``()``.
+... indique à MicroPython d'utiliser l'affichage pour faire défiler la chaîne de caractères "Hello, World!".
+La partie ``display`` de cette ligne est un *objet* du module ``microbit``
+qui représente l'affichage physique du périphérique (on dit "objet" au lieu de
+"chose", "quoi" ou "doodah"). Nous pouvons dire à l'affichage de faire les
+choses avec un point ``.`` uivi de ce qui ressemble à une commande
+(en fait, c'est quelque chose que nous appelons une *méthode* ). Dans ce
+cas, nous utilisons la méthode``scroll``. Puisque ``scroll`` ndoit savoir
+quels caractères faire défiler l'affichage physique, nous les spécifions
+entre guillemets ((``"``) entre les parenthèses (``(`` et ``)``). Ce sont
+les *arguments*. Ainsi,``display.scroll("Hello, World!")`` signifie, en
+français, "Je veux que tu utilises l'écran pour faire défiler le texte
+'Hello, World!'". Si une méthode n'a pas besoin d'arguments que nous
+faisons cela clairement en utilisant des parenthèses vides comme ceci: ``()``.
 
 Copiez le code "Hello, World!" Dans votre éditeur et flashez-le sur le
 périphérique. Pouvez-vous trouver comment changer le message? Peux-tu le faire
