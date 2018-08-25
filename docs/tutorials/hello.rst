@@ -72,21 +72,3 @@ indice, vous devez changer l'argument de la méthode de défilement.
   câble de la batterie s'il est connecté), puis rebranchez le câble. Vous
   devrez peut-être également quitter et redémarrer votre application d'éditeur
   de code.
-
-.. attention::
-  ceci est un essai d'attention (1 indentation)
-  avec une deuxième ligne
-    une 3ieme (2 indentation)
-  1 indentation
-0 indentation
-
-0 indentation après un saut de ligne
-
-.. attention::
-    2 indentations
-
-0 indentation
-
-.. attention::
-
-  1 indentation avec un saut de ligne après le attention
