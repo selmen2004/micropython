@@ -66,9 +66,27 @@ indice, vous devez changer l'argument de la méthode de défilement.
   comme mettre un point au milieu d'une phrase. Il est difficile de comprendre
   exactement ce que vous voulez dire.
 
-  Votre microbite peut cesser de répondre: vous ne pouvez pas lui envoyer un
+  Votre microbit peut cesser de répondre: vous ne pouvez pas lui envoyer un
   nouveau code ou entrer des commandes dans le REPL. Si cela se produit,
   essayez de le rallumer. En d'autres termes, débranchez le câble USB (et le
   câble de la batterie s'il est connecté), puis rebranchez le câble. Vous
   devrez peut-être également quitter et redémarrer votre application d'éditeur
   de code.
+
+.. attention::
+  ceci est un essai d'attention (1 indentation)
+  avec une deuxième ligne
+    une 3ieme (2 indentation)
+  1 indentation
+0 indentation
+
+0 indentation après un saut de ligne
+
+.. attention::
+    2 indentations
+
+0 indentation
+
+.. attention::
+
+  1 indentation avec un saut de ligne après le attention
