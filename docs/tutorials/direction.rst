@@ -20,9 +20,9 @@ Il peut aussi t'indiquer la direction du Nord comme ça::
 .. note::
 
         **Tu dois calibrer la boussole avant de l'utiliser.** Ne pas le faire
-    entraine des résultats inutilisables. La méthode ``calibration`` lance un
-    petit jeu pour aider l'appareil à déterminer sa position par rapport au
-    champs magnétique de la Terre.
+        entraine des résultats inutilisables. La méthode ``calibration`` lance un
+        petit jeu pour aider l'appareil à déterminer sa position par rapport au
+        champs magnétique de la Terre.
 
     Pour calibrer la boussole, incline le micro:bit dans tous les sens jusqu'à ce
     qu'un cercle de pixel soit dessiné sur les bords de l'affichage
