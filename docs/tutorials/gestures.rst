@@ -50,8 +50,8 @@ qu'elle nous révèle la vérité. C'est plutôt facile à programmer::
     from microbit import *
     import random
     reponses = [
-         "C'est certain",
-         "C'est décidément ainsi",
+        "C'est certain",
+        "C'est décidément ainsi",
          "Sans aucun doute",
          "Oui définitivement",
          "Vous pouvez compter dessus",
