@@ -1,31 +1,31 @@
-Input/Output
+Entrée/Sortie
 ------------
 
-There are strips of metal along the bottom edge of the BBC micro:bit that make
-it look as if the device has teeth. These are the input/output pins (or I/O pins
-for short).
+Il y a des bandes de métal sur  le côté bas du BBC micro:bit qui lui font des
+sortes de dents. Ce sont les pin d'entrée/sortie (ou pin E/S pour faire court)
 
 .. image:: blue-microbit.png
 
-Some of the pins are bigger than others so it's possible to attach crocodile
-clips to them. These are the ones labelled 0, 1, 2, 3V and GND (computers
-always start counting from zero). If you attach an edge connector board to the
-device it's possible to plug in wires connected to the other (smaller) pins.
+Certains de ces pins sont plus gros que d'autres donc il est possible d'y
+accrocher des pinces crocodiles. Ceux sont numérotés 0, 1, 2, 3V et GND (les
+ordinateurs comptent toujours à partir de zéro). Si tu branche une carte dédiée
+à ton micro:bit, il est également possible de relier des câbles aux autres
+(plus petits) pins.
 
-Each pin on the BBC micro:bit is represented by an *object* called ``pinN``
-where ``N`` is the pin number. So, for example, to do things with the pin
-labelled with a 0 (zero), use the object called ``pin0``.
+Chaque pin sur le BBC micro:bit est représenté par un *objet* appelé ``pinN``
+où ``N`` est le numéro du pin. Donc, par exemple, pour faire quelque chose avec
+le pin numéroté 0 (zéro), on utilise l'objet appelé ``pin0``.
 
-Simple!
+Facile!
 
-These objects have various *methods* associated with them depending upon what
-the specific pin is capable of.
+Ces objets ont des *méthodes* variées qui leur sont associée en fonction de ce
+que ce pin particulier est capable de faire.
 
-Ticklish Python
-+++++++++++++++
+Python chatouilleux
++++++++++++++++++++
 
-The simplest example of input via the pins is a check to see if they are
-touched. So, you can tickle your device to make it laugh like this::
+L'exemple le plus simple d'entrée par les pins est de déterminer si ils sont
+touchés. Donc, tu peux chatouiller ton appareil et le faire rire comme ça::
 
     from microbit import *
 
@@ -35,31 +35,31 @@ touched. So, you can tickle your device to make it laugh like this::
         else:
             display.show(Image.SAD)
 
-With one hand, hold your device by the GND pin. Then, with your other hand,
-touch (or tickle) the 0 (zero) pin. You should see the display change from
-grumpy to happy!
+Avec une main, tiens ton appareil par le pin GND. Puis, avec ton autre main,
+touche (ou chatouille) le pin 0 (zéro). Tu devrais voir l'image affichée passer
+de grognon à content.
 
-This is a form of very basic input measurement. However, the fun really starts
-when you plug in circuits and other devices via the pins.
+C'est une forme simpliste de mesure de l'entrée. On commence vraiment à
+s'amuser lorsque l'on connecte des circuits et d'autres appareils grâce aux pins.
 
-Bleeps and Bloops
-+++++++++++++++++
+Bip Bip
++++++++
 
-The simplest thing we can attach to the device is a Piezo buzzer. We're going
-to use it for output.
+La chose la plus simple que nous puission raccorder à l'appareil est un buzzer.
+Nous allons l'utiliser comme une sortie.
 
 .. image:: piezo_buzzer.jpg
 
-These small devices play a high-pitched bleep when connected to a circuit. To
-attach one to your BBC micro:bit you should attach crocodile clips to pin 0 and
-GND (as shown below).
+Ces petits appareils émettent un bip aigü lorsqu'ils sont connecté à un circuit.
+Pour en relier un à ton micro:bit, tu dois raccorder une pince crocodile aux pins
+0 et GND (voir ci-dessous)
 
 .. image:: pin0-gnd.png
 
-The wire from pin 0 should be attached to the positive connector on the buzzer
-and the wire from GND to the negative connector.
+Le câble partant du pin 0 doit raccordé au connecteur positif du buzzer et celui
+partant du GND à connecteur négatif.
 
-The following program will cause the buzzer to make a sound::
+Le programme suivant fera émettre un son au buzzer::
 
     from microbit import *
 
@@ -67,6 +67,10 @@ The following program will cause the buzzer to make a sound::
 
 This is fun for about 5 seconds and then you'll want to make the horrible
 squeaking stop. Let's improve our example and make the device bleep::
+
+C'est marrant pendant à peu près 5 secondes et ensuite tu auras envie d'arrêter
+cet horrible couinement. Améliorons notre example en le faisant bipper par
+intervalles.
 
     from microbit import *
 
@@ -76,8 +80,8 @@ squeaking stop. Let's improve our example and make the device bleep::
         pin0.write_digital(0)
         sleep(480)
 
-Can you work out how this script works? Remember that ``1`` is "on" and ``0``
-is "off" in the digital world.
+Peux-tu comprendre comment ce script fonctionne ? Rappele-toi que ``1`` est "on"
+et ``0`` est "off" dans le monde digital.
 
 The device is put into an infinite loop and immediately switches pin 0 on. This
 causes the buzzer to emit a beep. While the buzzer is beeping, the device
@@ -86,6 +90,13 @@ effect of a short bleep. Finally, the device sleeps for 480 milliseconds before
 looping back and starting all over again. This means you'll get two bleeps per
 second (one every 500 milliseconds).
 
-We've made a very simple metronome!
+L'appareil est mis dans une boucle infinie et met immédiatement le pin 0 sur "on".
+Ce qui fait que le buzzer émet un son. Pendant qu'il fait du bruit, l'appareil
+dort pendant vingt millisecondes puis passe le pin 0 sur "off". Cela donne l'effet
+d'un bip court (20ms). Enfin, l'appareil dort pendant 480 millisecondes avant de
+recommencer la boucle indéfiniment. Ce qui signifie que tu obtiens deux "bip" par
+seconde (un toutes les 500 millisecondes)
+
+On a fait un métronome !
 
 .. footer:: The image of the pizeo buzzer is CC BY-NC-SA 3.0 from https://www.flickr.com/photos/tronixstuff/4821350094
