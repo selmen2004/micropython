@@ -69,8 +69,8 @@ This is fun for about 5 seconds and then you'll want to make the horrible
 squeaking stop. Let's improve our example and make the device bleep::
 
 C'est marrant pendant à peu près 5 secondes et ensuite tu auras envie d'arrêter
-cet horrible couinement. Améliorons notre example en le faisant bipper par
-intervalles.
+cet horrible couinement. Améliorons notre exemple en le faisant bipper par
+intervalles::
 
     from microbit import *
 
