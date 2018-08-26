@@ -36,14 +36,14 @@ apparait comme un stockage USB dans ton explorateur de fichiers.
     next
 
 Python est l'un des langages de programmation
-_`les plus populaires du monde <http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html>`_.
+ `les plus populaires du monde <http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html>`_.
 Tous les jours, sans le savoir, tu tuilises probablement un logiciel écrit en
 Python. Toutes sortes de sociétés et d'organisations utilisent Python dans une
 grande variété d'applications. Google, NASA, Bank of America, Disney, CERN,
 YouTube, Mozilla, The Guardian - la liste continue et couvre tous les secteurs
 de l'économie, des sciences et des arts.
 
-Par exemple, te rappeles-tu de l'annonce de _'la découverte des ondes gravitationelles <http://www.bbc.co.uk/news/science-environment-35552207>`_?
+Par exemple, te rappeles-tu de l'annonce de  `la découverte des ondes gravitationelles <http://www.bbc.co.uk/news/science-environment-35552207>`_?
 Les instruments utilisés pour faire les mesures étaient controllés `avec Python <https://www.reddit.com/r/IAmA/comments/45g8qu/we_are_the_ligo_scientific_collaboration_and_we/czxnlux>`_.
 
 Dit simplement, si tu enseigne ou apprend Python, tu développes un talent de grande
