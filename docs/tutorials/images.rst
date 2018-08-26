@@ -1,25 +1,26 @@
 Images
 ------
 
-MicroPython is about as good at art as you can be if the only thing you have is
-a 5x5 grid of red LEDs (light emitting diodes - the things that light up on the
-front of the device). MicroPython gives you quite a lot of control over the
-display so you can create all sorts of interesting effects.
 
-MicroPython comes with lots of built-in pictures to show on the display.
-For example, to make the device appear happy you type::
+MicroPython est à peu près aussi bon en art que tu pourrais l'être si la seule
+je que tu avais était une grille de LED de 5x5. MicroPython te donne pas mal de
+contrôle sur l'affichage de façon à ce que tu puisses créer toute sorte d'effets
+intéressants.
+
+MicroPython est fourni avec beaucoup d'images intégrées à montrer sur
+l'affichage. Par exemple, pour que l'appareil ait l'air heureux, tape::
 
     from microbit import *
     display.show(Image.HAPPY)
 
-I suspect you can remember what the first line does. The second line uses the
-``display`` object to ``show`` a built-in image. The happy image we want to
-display is a part of the ``Image`` object and called ``HAPPY``. We tell
-``show`` to use it by putting it between the parenthesis (``(`` and ``)``).
+J'imagine que tu peux te rappeler ce fait la première ligne. La seconde utilise
+l'objet ``display`` pour ``show`` (montrer) une image intégrée. L'image *heureux*
+que nous voulons afficher fait partie del'objet ``Image`` et est appelée ``HAPPY``.
+On écrit ``show`` pour l'utiliser en la mettant entre parenthèses (``(`` et ``)``).
 
 .. image:: happy.png
 
-Here's a list of the built-in images:
+Voici la liste des images intégrées:
 
     * ``Image.HEART``
     * ``Image.HEART_SMALL``
@@ -71,24 +72,25 @@ Here's a list of the built-in images:
     * ``Image.UMBRELLA``
     * ``Image.SNAKE``
 
-There's quite a lot! Why not modify the code that makes the micro:bit look
-happy to see what some of the other built-in images look like? (Just replace
-``Image.HAPPY`` with one of the built-in images listed above.)
+Il y en a pas mal! Pourquoi ne pas modifier le code qui donne à micro:bit l'air
+heureux pour voir à quoi ressemble les autres images intégrées ? (Il te suffit de
+remplacer ``Image.HAPPY`` par l'une des images intégrées de la liste ci-dessus.)
 
-DIY Images
-++++++++++
+Images personnelles
++++++++++++++++++++
 
-Of course, you want to make your own image to display on the micro:bit, right?
+Bien sûr, tu veux que ta propre image s'affiche sur le micro:bit, non ?
 
-That's easy.
+C'est facile.
 
-Each LED pixel on the physical display can be set to one of ten values. If a
-pixel is set to ``0`` (zero) then it's off. It literally has zero brightness.
-However, if it is set to ``9`` then it is at its brightest level. The values
-``1`` to ``8`` represent the brightness levels between off (``0``) and full on
-(``9``).
 
-Armed with this information, it's possible to create a new image like this::
+Chaque pixel LED sur l'affichage physique peut prendre une parmi dix valeurs.
+Si un pixel prend la valeur ``0`` (zéro) c'est qu'il est éteint. Litéralement,
+il a une luminosité de zéro.En revanche, s'il prend la valeur ``9`` il est à la
+luminosité maximale. Les valeurs de ``1`` à ``8`` représentent des niveaux de
+luminosité entre éteint (``0``) et "à fond" (``9``).
+
+Muni de ces informations, il est possible de créer une nouvelle image comme ça::
 
     from microbit import *
 
@@ -100,135 +102,140 @@ Armed with this information, it's possible to create a new image like this::
 
     display.show(boat)
 
-(When run, the device should display an old-fashioned "Blue Peter" sailing ship
-with the masts dimmer than the boat's hull.)
+(Une fois lancé, l'appareil devrait afficher un bateau à voile dont le mât est
+moins brillant que la coque).
 
-Have you figured out how to draw a picture? Have you noticed that each line of
-the physical display is represented by a line of numbers ending in ``:`` and
-enclosed between ``"`` double quotes? Each number specifies a brightness.
-There are five lines of five numbers so it's possible to specify the individual
-brightness for each of the five pixels on each of the five lines on the
-physical display. That's how to create a new image.
+As-tu compris comment dessiner une image ? As-tu remarqué que chaque ligne de
+l'affichage physique est représentée par une line de nombres se terminant par ``:``
+et entourée de ``"`` guillemets doubles ? Chaque nombre indique une luminosité.
+Il y a cinq lignes de cinq nombres donc il est possible de spécifier la luminosité
+individuelle de chacune des cinq LED sur chacune des cinq lignes sur l'affichage
+physique. C'est comme ça qu'on créé une image.
 
 Simple!
 
-In fact, you don't need to write this over several lines. If you think you can
-keep track of each line, you can rewrite it like this::
+En fait, tu n'as pas besoin d'écrire tout ça sur plusieur lignes. Si tu te sent
+capable de garder la trace de chaque ligne, tu peux le ré-écrire comme ça::
 
     boat = Image("05050:05050:05050:99999:09990")
 
 Animation
 +++++++++
 
-Static images are fun, but it's even more fun to make them move. This is also
-amazingly simple to do with MicroPython ~ just use a list of images!
+Les images statiques sont amusantes, mais c'est encore plus amusant de les faire
+bouger. C'est aussi incroyablement facile à faire avec MicroPython ~ il suffit
+d'utiliser une liste d'images.
 
-Here is a shopping list::
+Voici une liste de courses::
 
-    Eggs
+    Oeufs
     Bacon
-    Tomatoes
+    Tomates
 
-Here's how you'd represent this list in Python::
+Et voici comment la représenter en Python::
 
-    shopping = ["Eggs", "Bacon", "Tomatoes" ]
+    courses = ["Oeufs", "Bacon", "Tomates" ]
 
-I've simply created a list called ``shopping`` and it contains three items.
-Python knows it's a list because it's enclosed in square brackets (``[`` and
-``]``). Items in the list are separated by a comma (``,``) and in this instance
-the items are three strings of characters: ``"Eggs"``, ``"Bacon"`` and
-``"Tomatoes"``. We know they are strings of characters because they're enclosed
-in quotation marks ``"``.
+J'ai simplement créé une liste nommée ``courses`` et elle contient trois éléments.
+Python sait que c'est une liste car elle est contenue dans des crochets (``[``
+et ``]``). Les éléments de la liste sont séparés par des virgules (``,``) et dans
+cet exemple les éléments sont trois chaînes de caractères: ``"Oeufs"``, ``"Bacon"``
+et ``"Tomates"``. Nous savons que ce sont des chaînes de caractères parce qu'elles
+sont contenues des des guillemets ``"``.
 
-You can store anything in a list with Python. Here's a list of numbers::
+Tu peux stocker n'importe quoi dans une lsite en Python. Voici une liste de
+nombres::
 
-    primes = [2, 3, 5, 7, 11, 13, 17, 19]
+    premiers = [2, 3, 5, 7, 11, 13, 17, 19]
 
 
 .. note::
 
-    Numbers don't need to be quoted since they represent a value (rather than a
-    string of characters). It's the difference between ``2`` (the numeric value
-    2) and ``"2"`` (the character/digit representing the number 2). Don't worry
-    if this doesn't make sense right now. You'll soon get used to it.
+    Les nombres n'ont pas besoin d'être entre guillemets puisqu'ils représentent
+    une valeur (plutôt qu'une chaînes de caractères). C'est la différence entre
+    ``2`` (la valeur numérique 2) et ``"2"`` (le caractères, le chiffre qui
+    représente le nombre 2). Ne t'inquiète pas si ce n'est pas très clair pour
+    l'instant. Tu t'y habitueras bientôt.
 
-It's even possible to store different sorts of things in the same list::
+Il est même possuble de stocker des choses de catégories différentes dans une
+même liste::
 
-    mixed_up_list = ["hello!", 1.234, Image.HAPPY]
+    list_variee = ["salut!", 1.234, Image.HAPPY]
 
-Notice that last item? It was an image!
+As-tu remarqué le dernier élément? C'était une image!
 
-We can tell MicroPython to animate a list of images. Luckily we have a
-couple of lists of images already built in. They're called ``Image.ALL_CLOCKS``
-and ``Image.ALL_ARROWS``::
+On peut dire à MicroPython d'animer une liste d'images. Par chance npus avons
+deux lists d'images déjà prêtes. Elles s'appellent ``Image.ALL_CLOCKS`` et
+``Image.ALL_ARROWS``::
 
     from microbit import *
 
     display.show(Image.ALL_CLOCKS, loop=True, delay=100)
 
-As with a single image, we use ``display.show`` to show it on the
-device's display. However, we tell MicroPython to use ``Image.ALL_CLOCKS`` and
-it understands that it needs to show each image in the list, one after the
-other. We also tell MicroPython to keep looping over the list of images (so
-the animation lasts forever) by saying ``loop=True``. Furthermore, we tell it
-that we want the delay between each image to be only 100 milliseconds (a tenth
-of a second) with the argument ``delay=100``.
+Comme avec une seule image, on utilise ``display.show`` pour la montrer sur
+l'affichage du matériel. Mais ici on indique à MicroPython d'utiliser ``Image.ALL_CLOCKS``
+et il comprend qu'il doit montrer chaque image de la liste, l'une après l'autre.
+On indique aussi à MicroPython de parcourir la liste d'images en boucle (pour
+que l'animation dure pour toujours) en écrivant ``loop=True``. De plus, nous lui
+indiquons que nous voulons un temps de 10 millisecondes entre chaque image avec
+l'argument ``delay=100``.
 
-Can you work out how to animate over the ``Image.ALL_ARROWS`` list? How do you
-avoid looping forever (hint: the opposite of ``True`` is ``False`` although
-the default value for ``loop`` is ``False``)? Can you change the speed of the
-animation?
+Peux-tu trouver comment animer la liste ``Image.ALL_ARROWS`` ? Comment éviterais-tu
+de la parcourir en boucle éternellement ? (Indice: le contraire de ``True`` est
+``False`` bien que la valeur par défaut de ``loop`` soit ``False``)? Peux-tu changer
+la vitesse de l'animation ?
 
-Finally, here's how to create your own animation. In my example I'm going to
-make my boat sink into the bottom of the display::
+Enfin, voici comment créer ta propre animation. Dans mon exemple, je vais faire
+couler mon bateau en bas de l'affichage::
 
     from microbit import *
 
-    boat1 = Image("05050:"
+    bateau1 = Image("05050:"
                   "05050:"
                   "05050:"
                   "99999:"
                   "09990")
 
-    boat2 = Image("00000:"
+    bateau2 = Image("00000:"
                   "05050:"
                   "05050:"
                   "05050:"
                   "99999")
 
-    boat3 = Image("00000:"
+    bateau3 = Image("00000:"
                   "00000:"
                   "05050:"
                   "05050:"
                   "05050")
 
-    boat4 = Image("00000:"
+    bateau4 = Image("00000:"
                   "00000:"
                   "00000:"
                   "05050:"
                   "05050")
 
-    boat5 = Image("00000:"
+    bateau5 = Image("00000:"
                   "00000:"
                   "00000:"
                   "00000:"
                   "05050")
 
-    boat6 = Image("00000:"
+    bateau6 = Image("00000:"
                   "00000:"
                   "00000:"
                   "00000:"
                   "00000")
 
-    all_boats = [boat1, boat2, boat3, boat4, boat5, boat6]
-    display.show(all_boats, delay=200)
+    tous_les_bateaux = [bateau1,bateau2,bateau3,bateau4,bateau5,bateau6]
+    display.show(tous_les_bateaux, delay=200)
 
-Here's how the code works:
+Voici comment le code marche:
 
-* I create six ``boat`` images in exactly the same way I described above.
-* Then, I put them all into a list that I call ``all_boats``.
-* Finally, I ask ``display.show`` to animate the list with a delay of 200 milliseconds.
-* Since I've not set ``loop=True`` the boat will only sink once (thus making my animation scientifically accurate). :-)
+* Je créé six images de ``bateau`` de la même façon que ce que j'ai décris au-dessus
+* Ensuite, je les mets dans une liste que j'appelle ``tous_les_bateaux``
+* Enfin, je demande ``dispaly.show`` pour animer la liste avec un délai de 200 millisecondes
+* Puisque je n'ai pas déclaré ``loop=True``, le bateau ne coulera qu'une fois
+(rendant ainsi mon animation scientifiquement correcte). :-)
 
-What would you animate? Can you animate special effects? How would you make an
-image fade out and then fade in again?
+Que voudrais-tu animer ? Peux-tu animer un effet spécial ? Comment ferais-tu un
+fondu d'image en sortie et en ouverture ?
