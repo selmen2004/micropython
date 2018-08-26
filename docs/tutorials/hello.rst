@@ -46,7 +46,8 @@ dire bonjour? Par exemple, je pourrais dire "Bonjour, Nicolas!". Voici un
 indice, vous devez changer l'argument de la méthode de défilement.
 
 .. warning::
-   Cela peut ne pas fonctionner. :-)
+
+  Cela peut ne pas fonctionner. :-)
 
   C'est là que les choses amusantes commencent et que MicroPython essaie d'être utile.
   S'il rencontre une erreur, il fera défiler un message utile sur l'écran du
