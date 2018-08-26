@@ -1,22 +1,24 @@
 Introduction
 ------------
 
-We suggest you download and use the `mu editor <http://codewith.mu/>`_ when
-working through these tutorials. Instructions for downloading and installing
-Mu are on its website. You may need to install a driver, depending on your
-platform (instruction are on the website).
+Nous suggérons de télécharger et d'utiliser `l'éditeur mu <http://codewith.mu/>`_
+pour travailler avec ces tutoriaux. Les instructions pour télécharger et installer
+Mu se trouvent sur son site. Tu seras peut-être amené à installer un pilote de
+périphérique selon ton système d'exploitation (les instructions sont sur le site
+web).
 
-Mu works with Windows, OSX and Linux.
+Mu fonctionne sous Windows, OSX et Linux.
 
-Once Mu is installed connect your micro:bit to your computer via a USB lead.
+Une fois que Mu est installé, connect ton micro:bit à ton ordinateur avec un
+câble USB.
 
-Write your script in the editor window and click the "Flash" button to transfer
-it to the micro:bit. If it doesn't work, make sure your micro:bit appears as
-a USB storage device in your file system explorer.
+Ecris ton script dans la fenêtre d'édition et click sur le bouton "Flash" pour le
+transférer dans le micro:bit. Si ça ne marche pas, vérifie que ton micro:bit
+apparait comme un stockage USB dans ton explorateur de fichiers.
 
 .. toctree::
     :maxdepth: 2
-    :caption: Tutorials
+    :caption: Tutoriels
 
     hello
     images
@@ -33,57 +35,65 @@ a USB storage device in your file system explorer.
     radio
     next
 
-Python is one of the `world's most popular <http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html>`_ programming languages. Every day, without
-realising, you probably use software written using Python. All sorts of
-companies and organisations use Python for a diverse range of applications.
-Google, NASA, Bank of America, Disney, CERN, YouTube, Mozilla, The Guardian -
-the list goes on and covers all sectors of the economy, science and the arts.
+Python est l'un des langages de programmation
+`les plus populaires du monde <http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html>`.
+Tous les jours, sans le savoir, tu tuilises probablement un logiciel écrit en
+Python. Toutes sortes de sociétés et d'organisations utilisent Python dans une
+grande variété d'applications. Google, NASA, Bank of America, Disney, CERN,
+YouTube, Mozilla, The Guardian - la liste continue et couvre tous les secteurs
+de l'économie, des sciences et des arts.
 
-For example, do you remember the announcement of the `discovery of gravitational waves <http://www.bbc.co.uk/news/science-environment-35552207>`_? The instruments used to make the measurements were controlled `with Python <https://www.reddit.com/r/IAmA/comments/45g8qu/we_are_the_ligo_scientific_collaboration_and_we/czxnlux>`_.
+Par exemple, te rappeles-tu de l'annonce de 'la découverte des ondes gravitationelles <http://www.bbc.co.uk/news/science-environment-35552207>`_?
+Les instruments utilisés pour faire les mesures étaient controllés `avec Python <https://www.reddit.com/r/IAmA/comments/45g8qu/we_are_the_ligo_scientific_collaboration_and_we/czxnlux>`_.
 
-Put simply, if you teach or learn Python, you are developing a highly valuable
-skill that applies to all areas of human endeavour.
+Dit simplement, si tu enseigne ou apprend Python, tu développes un talent de grande
+valeur qui s'applique à tous les domaines de l'activté humaine.
 
-One such area is the BBC's amazing micro:bit device. It runs a version of
-Python called MicroPython that's designed to run on small computers like the BBC
-micro:bit. It's a full implementation of Python 3 so when you move onto other
-things (such as programming Python on a Raspberry Pi) you'll use exactly the
-same language.
+L'un de ces domaines est l'appareil micro:bit de la BBC. Il embarque une version
+de Python appelée MicroPython qui est destinée à tourner sur de petits ordinateurs
+comme le BBC micro:bit. C'est une implémentation complète de Python 3 donc lorsque
+tu passeras sur d'autres ordinateurs (comme programmer en Python sur une Raspberry
+ Pi) tu utiliseras exactement le même langage.
 
-MicroPython does not include all the standard code libraries that come with
-"regular" Python. However, we have created a special ``microbit`` module in
-MicroPython that lets you control the device.
+MicroPython n'inclut pas toutes les bibliothèques standards qui sont présente
+dans la version "habituelle" de Python. Néanmoins, nous avons créé un module
+spécial ``microbit`` dans MicroPython qui te permet de controller l'appareil.
 
-Python and MicroPython are free software. Not only does this mean you don't pay
-anything to use Python, but you are also free to contribute back to the Python
-community. This may be in the form of code, documentation, bug reports, running
-a community group or writing tutorials (like this one). In fact, all the Python
-related resources for the BBC micro:bit have been created by an international
-team of volunteers working in their free time.
+Python et MicroPython sont des logiciels libres. Cela ne signifie pas seulement
+qu'il n'y a rien a payer pour utiliser Python, mais aussi que tu es libre de
+contribuer à la communauté Python. Cela peut être fait sous la forme de code,
+de documentation, de rapports de bugs, gérer un groupe ou écrire des tutoriels
+(comme celui-ci). En fait, toutes les ressources Python pour le BBC micro:bit ont
+été créées par une équipe internationale de bénévoles travaillant sur leur temps
+libre.
 
-These lessons introduce MicroPython and the BBC
-micro:bit in easy-to-follow steps. Feel free to adopt and adapt them for
-classroom based lessons, or perhaps just follow them on your own at home.
+Ces leçons présentent MicroPython et le BBC micro:bit en étapes faciles à suivre.
+N'hésite pas à les adopter et à les adapter pour des leçons en classe, ou peut-être
+simplement à les suivre par toi-même chez toi.
 
-You'll have most success if you explore, experiment and play. You can't break
-a BBC micro:bit by writing incorrect code. Just dive in!
+Tu y arriveras mieux si tu explores, expérimentes et joues. Tu ne peux pas casser
+un BBC micro:bit avec un code incorrect. Lance-toi !
 
-A word of warning: *you will fail many times*, and that is fine. **Failure is
-how good software developers learn**. Those of us who work as software
-developers have a lot of fun tracking down bugs and avoiding the repetition of
-mistakes.
+
+
+Un mot d'avertissement : *tu vas souvent rater*, et ce n'est pas grave. **L'échec
+est le moyen qu'on les bon développeurs de logiciel d'apprendre**. Ceux parmi
+nous qui développent des logiciels s'amusent beaucoup à rechercher les bugs et à 
+éviter la répétition des erreurs.
 
 If in doubt, remember the Zen of MicroPython::
 
+En cas de doute, rappele-toi la maxime Zen de MicroPython::
+
     Code,
-    Hack it,
-    Less is more,
-    Keep it simple,
-    Small is beautiful,
+    Bidouille,
+    Moins est plus,
+    Reste simple,
+    Petit, c'est beau,
 
-    Be brave! Break things! Learn and have fun!
-    Express yourself with MicroPython.
+    Sois courageux! Casse les trucs! Apprend et amuse-toi!
+    Exprime-toi avec MicroPython.
 
-    Happy hacking! :-)
+    Bon bidouillage! :-)
 
-Best of luck!
+Bonne chance!
