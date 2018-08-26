@@ -5,6 +5,7 @@ L'effet collatéral le plus intéressant d'un accélèromètre est la détection
 gestes.
 
 MicroPython est capable de reconnaître les gestes suivants:
+
 + haut-> ``up``
 • bas -> ``down``
 ‣ gauche -> ``left``
