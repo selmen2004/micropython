@@ -1,66 +1,68 @@
-Movement
+Mouvement
 --------
 
-Your BBC micro:bit comes with an accelerometer. It measures movement along
-three axes:
+Ton BBC micro:bit est munit d'un accéléromètre. Il mesure le mouvement selon trois
+axes :
 
-* X - tilting from left to right.
-* Y - tilting forwards and backwards.
-* Z - moving up and down.
+* X - l'inclinaison de gauche à droite.
+* Y - l'inclinaison d'avant en arrière.
+* Z - le mouvement haut et bas.
 
-There is a method for each axis that returns a positive or negative number
-indicating a measurement in milli-g's. When the reading is 0 you are "level"
-along that particular axis.
+Il y a une méthode pour chaque axe qui renvoie un nombre positif ou négatif qui
+indique une mesure en milli-g. Lorsque la lecture est de 0, tu est "aligné" selon
+cet axe.
 
-For example, here's a very simple spirit-level that uses ``get_x`` to measure
-how level the device is along the X axis::
+Par exemple, voici un "niveau à bulle" très simple qui utilise ``get_x`` pour
+mesurer l'aligmenet de l'appareil selon l'axe X::
 
     from microbit import *
 
     while True:
-        reading = accelerometer.get_x()
-        if reading > 20:
-            display.show("R")
-        elif reading < -20:
-            display.show("L")
+        lecture = accelerometer.get_x()
+        if lecture > 20:
+            display.show("D")
+        elif lecture < -20:
+            display.show("G")
         else:
             display.show("-")
 
-If you hold the device flat it should display ``-``; however, rotate it left or
-right and it'll show ``L`` and ``R`` respectively.
+Si tu tiens l'appareil horizontalement il devrait afficher ``-``; en revanche,
+si tu l'incline vers la gauche ou vers la droite il devrait afficher ``G`` ou
+``D`` respectivement.
 
-We want the device to constantly react to change, so we use an
-infinite ``while`` loop. The first thing to happen *within the body of the
-loop* is a measurement along the X axis which is called ``reading``. Because
-the accelerometer is *so* sensitive I've made level +/-20 in range. It's why
-the ``if`` and ``elif`` conditionals check for ``> 20`` and ``< -20``. The
-``else`` statement means that if the ``reading`` is between -20 and 20 then
-we consider it level. For each of these conditions we use the display to show
-the appropriate character.
+Nous voulons que l'appareil réagisse aux changement en permanence, donc nous
+utilisons une boucle ``while`` infinie. La prmière chose que l'on fait *dans
+le corps de cette boucle* est une mesure selon l'axe X que l'on nomme ``lecture``.
+L'accéléromètre étant *tellement* sensible j'ai mis une  marge de +/-20 pour le
+niveau. L'instruction ``else`` signifie que si ``lecture`` est entre -20 et 20
+alors on considère qu'on est de niveau. Pour chacune des conditions on utilise
+l'affichage pour montrer le caractère approprié.
 
-There is also a ``get_y`` method for the Y axis and a ``get_z`` method for the
-Z axis.
+Il y a aussi une méthode ``get_y`` pour l'axe Y et une méthode ``get_z`` pour
+l'axe Z.
 
-If you've ever wondered how a mobile phone knows which up to show the images on
-its screen, it's because it uses an accelerometer in exactly the same way as
-the program above. Game controllers also contain accelerometers to help you
-steer and move around in games.
+Si tu t'es déjà demandé comment un téléphone portable sait dans quel sens afficher
+les images sur son écran, c'est parce qu'il utilise un accéléromètre de la même
+façon que le programme ci-dessus. Les manettes de jeux contiennent aussi des
+accéléromètres pour t'aider à tourner et à te déplacer dans les jeux.
 
-Musical Mayhem
+Chaos musical
 ++++++++++++++
 
-One of the most wonderful aspects of MicroPython on the BBC micro:bit is how it
-lets you easily link different capabilities of the device together. For
-example, let's turn it into a musical instrument (of sorts).
+L'un des aspect les plus merveilleux du MicroPython sur le BBC micro:bit est la
+façon dont il te permet facilement de relier les différentes possiblités de
+l'appareil entres elles. Par exemple, transformons-le en un instrument de musique
+(en quelque sorte)
 
-Connect a speaker as you did in the music tutorial. Use crocodile clips to
-attach pin 0 and GND to the positive and negative inputs on the speaker - it
-doesn't matter which way round they are connected to the speaker.
+
+Connecte un haut-parleur comme tu l'as fait dans le tutoriel sur la musique. Utilise
+des pinces crocodile pour relier les pin 0 et GND aux connecteurs positif et
+négatif du haut-parleur - le sens n'a pas d'importance.
 
 .. image:: pin0-gnd.png
 
-What happens if we take the readings from the accelerometer and play them as
-pitches? Let's find out::
+Que se passe-t-il si nous utilisons les  données de l'accéléromètre pour les jouer
+comme des hauteurs de note ?
 
     from microbit import *
     import music
@@ -68,16 +70,21 @@ pitches? Let's find out::
     while True:
         music.pitch(accelerometer.get_y(), 10)
 
-The key line is at the end and remarkably simple. We *nest* the reading from
-the Y axis as the frequency to feed into the ``music.pitch`` method. We only
-let it play for 10 milliseconds because we want the tone to change quickly as
-the device is tipped. Because the device is in an infinite ``while`` loop it
-is constantly reacting to changes in the Y axis measurement.
+La ligne clé est à la fin et est remarquablement simple. Nous *imbriquons* la
+lecture de l'inclinaison sur l'axe Y en tant que fréquence dans la méthode
+``music.pitch``. Nous ne la jouons que 10 millisecondes car nous voulons que le
+ton change rapidement à mesure que l'appareil est incliné. Puisque l'appareil est
+dans une boucle infinie il réagit constamment aux changements de la mesure sur
+l'axe Y.
 
-That's it!
+C'est tout!
 
-Tip the device forwards and backwards. If the reading along the Y axis is
-positive it'll change the pitch of the tone played by the micro:bit.
+Incline l'appareil en ava,t et en arrière. Si la lecture de l'inclinaison sur
+l'axe Y est positive, cela changera le ton joué par le micro:bit.
 
 Imagine a whole symphony orchestra of these devices. Can you play a tune? How
 would you improve the program to make the micro:bit sound more musical?
+
+Imagine un orchestre symphonique complet de ces appareil. Peux-tu jouer une
+mélodie ? Comment pourrais-tu améliorer le program pour que le micro:bit joue
+de façon plus musicale ?
