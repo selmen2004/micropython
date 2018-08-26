@@ -1,9 +1,6 @@
 Direction
 ---------
 
-There is a compass on the BBC micro:bit. If you ever make a weather station
-use the device to work out the wind direction.
-
 Il y a une boussole sur le BBC micro:bit. Si tu veux faire une station météo
 utilise l'appareil pour déterminer la direction du vent.
 
