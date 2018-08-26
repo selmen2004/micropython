@@ -188,9 +188,9 @@ comme ça ::
     if quelque chose est vrai (``True``):
         # fais un truc
     elif autre chose est vrai (``True``):
-        # do un autre truc
+        # fais un autre truc
     else:
-        # do fais encore autre chose.
+        # fais encore autre chose.
 
 C'est très proche de l'anglais !
 
