@@ -4,29 +4,33 @@ Direction
 There is a compass on the BBC micro:bit. If you ever make a weather station
 use the device to work out the wind direction.
 
-Compass
-+++++++
+Il y a une boussole sur le BBC micro:bit. Si tu veux faire une station météo
+utilise l'appareil pour déterminer la direction du vent.
 
-It can also tell you the direction of North like this::
+Boussole
+++++++++
+
+Il peut aussi t'indiquer la direction du Nord comme ça::
 
     from microbit import *
 
     compass.calibrate()
 
     while True:
-        needle = ((15 - compass.heading()) // 30) % 12
-        display.show(Image.ALL_CLOCKS[needle])
+        aiguille = ((15 - compass.heading()) // 30) % 12
+        display.show(Image.ALL_CLOCKS[aiguille])
 
-.. note:: 
+.. note::
 
-    **You must calibrate the compass before taking readings.** Failure to do so
-    will produce garbage results. The ``calibration`` method runs a fun little
-    game to help the device work out where it is in relation to the Earth's
-    magnetic field.
+        **Tu dois calibrer la boussole avant de l'utiliser.** Ne pas le faire
+    entraine des résultats inutilisables. La méthode ``calibration`` lance un
+    petit jeu pour aider l'appareil à déterminer sa position par rapport au
+    champs magnétique de la Terre.
 
-    To calibrate the compass, tilt the micro:bit around until a circle of pixels is
-    drawn on the outside edges of the display.
+    Pour calibrer la boussole, incline le micro:bit dans tous les sens jusqu'à ce
+    qu'un cercle de pixel soit dessiné sur les bords de l'affichage
 
-The program takes the ``compass.heading`` and, using some simple yet
-cunning maths, `floor division <https://en.wikipedia.org/wiki/Floor_and_ceiling_functions>`_ ``//`` and `modulo <https://en.wikipedia.org/wiki/Modulo_operation>`_ ``%``, works out the number of the clock hand to use to display on the screen
-so that it is pointing roughly North.
+Le programme prend la direction fournie par ``compass.heading`` et, en utilisant 
+de simple maths de façon astucieuse, `division entière <https://en.wikipedia.org/wiki/Floor_and_ceiling_functions>`_ ``//``
+and `modulo <https://en.wikipedia.org/wiki/Modulo_operation>`_ ``%``, détermine  le nombre que l'aiguille de la montre doit afficher pour indiquer approximaivement
+le nord.
