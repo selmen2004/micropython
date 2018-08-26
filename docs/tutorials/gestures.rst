@@ -6,16 +6,16 @@ gestes.
 
 MicroPython est capable de reconnaître les gestes suivants:
 
-+ haut-> ``up``
-• bas -> ``down``
-‣ gauche -> ``left``
+- haut-> ``up``
+- bas -> ``down``
+- gauche -> ``left``
 - droite -> ``right``
 - face en haut -> ``face up``
 - face en bas -> ``face down``
 - chute libre ->  ``free fall``
-- accélération correspondant à 3, 6 ou 8 fois celle de la chute libre -> ``3g``
-,  ``6g`` ou ``8g``
+- accélération correspondant à 3, 6 ou 8 fois celle de la chute libre -> ``3g``,``6g`` ou ``8g``
 - secousse -> ``shake``
+
 Les gestes sont toujours représentés par des chaînes de caractères.
 
 Pour obtenir le geste effectué, on utilise la méthode ``accelerometer.current_gesture``.
