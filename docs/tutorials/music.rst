@@ -1,29 +1,29 @@
-Music
------
+Musique
+-------
 
-MicroPython on the BBC micro:bit comes with a powerful music and sound module.
-It's very easy to generate bleeps and bloops from the device *if you attach a
-speaker*. Use crocodile clips to attach pin 0 and GND to the positive and
-negative inputs on the speaker - it doesn't matter which way round they are
-connected to the speaker.
+MicroPython sur le BBC micro:bit est fourni avec un module de musique et de son
+puissant. Il est très facile de générer des bips avec l'appareil *si tu le
+raccordes à un haut-parleur*. Utilise des pinces crocodile pour relier les pns 0
+et GND aux entrées positives et négatives du haut-parleur.
 
 .. image:: pin0-gnd.png
 
 .. note::
 
-    Do not attempt this with a Piezo buzzer - such buzzers are only able to
-    play a single tone.
+    N'essaye pas de le faire avec un simple buzzer Piezo - ce genre de buzzer
+    est seulement capable de jouer un seul ton.
 
-Let's play some music::
+Jouons de la musique!::
 
     import music
 
     music.play(music.NYAN)
 
-Notice that we import the ``music`` module. It contains methods used to make
-and control sound.
+Remarque que nous importons le module ``music``. Il contient les méthodes
+utilisées pour produire et contrôler le son.
 
-MicroPython has quite a lot of built-in melodies. Here's a complete list:
+MicroPython a tout un tas de mélodies pré-programmées. En voici la liste
+complète :
 
 * ``music.DADADADUM``
 * ``music.ENTERTAINER``
@@ -47,34 +47,36 @@ MicroPython has quite a lot of built-in melodies. Here's a complete list:
 * ``music.POWER_UP``
 * ``music.POWER_DOWN``
 
-Take the example code and change the melody. Which one is your favourite? How
-would you use such tunes as signals or cues?
+Prend le code d'exemple et change la mélodie. Quelle est ta préférée ? Comment
+pourrais-tu utiliser ces airs comme des signaux ou des indices ?
 
 Wolfgang Amadeus Microbit
 +++++++++++++++++++++++++
 
-Creating your own tunes is easy!
+Créer ta propre mélodie est facile !
 
-Each note has a name (like ``C#`` or ``F``), an octave (telling MicroPython how
-high or low the note should be played) and a duration (how
-long it lasts through time). Octaves are indicated by a number ~ 0 is the
-lowest octave, 4 contains middle C and 8 is about as high as you'll ever need
-unless you're making music for dogs. Durations are also expressed as numbers.
-The higher the value of the duration the longer it will last. Such
-values are related to each other - for instance, a duration of ``4`` will last
-twice as long as a duration ``2`` (and so on). If you use the note name ``R``
-then MicroPython will play a rest (i.e. silence) for the specified duration.
 
-Each note is expressed as a string of characters like this::
+Chaque note a un nom (comme ``C#`` ou ``F``), une octave (pour dire à MicroPython
+à quelle hauteur il faut jouer la note) et une durée (combien de temps elle dure).
+Les octaves sont indiquée par un nombre ~ 0 est la plus basse et 8 est à peu près
+aussi haut que ce dont tu auras besoin à moins que tu ne fasses de la musique
+pour chiens. La durée s'exprime aussi à l'aide de nombres. Plus la valeur de la
+durée est grande plus la note sera jouée longtemps. Ces valeurs sont reliées
+entres elles - par exemple, une durée de ``4`` durera deux fois plus longtemps
+qu'une durée de ``2`` (et ainsi de suite). Si tu utilises la note nommée ``R``
+alors MicroPython jouera une pause (c'est-à-dire un silence) pendant la durée
+spécifiée.
 
-    NOTE[octave][:duration]
+Chaque note est représentée par une chaîne de caractères comme ça::
 
-For example, ``"A1:4"`` refers to the note named ``A`` in octave number ``1``
-to be played for a duration of ``4``.
+    NOTE[octave][:durée]
 
-Make a list of notes to create a melody (it's equivalent to creating an
-animation with a list of images). For example, here's how to make MicroPython
-play opening of "Frere Jaques"::
+Par exemple, ``"A1:4"`` représente la note nommée ``A`` dans l'octave numéro 1 à
+jouer sur une durée de ``4``.
+
+Fais une liste de note pour créer une  mélodie (c'est équivalent à créer une
+animation avec une liste d'images). Par exemple, voici comment faire jouer à
+MicroPython le début de "Frère Jacques"::
 
     import music
 
@@ -84,9 +86,9 @@ play opening of "Frere Jaques"::
 
 .. note::
 
-    MicroPython helps you to simplify such melodies. It'll remember the octave
-    and duration values until you next change them. As a result, the example
-    above can be re-written as::
+    MicroPython t'aide à simplifier de telles mélodies. Il se rappelera de
+    l'ocatve et de la durée jusqu'à ce que tu les changes. Grâce à cela,
+    l'exemple ci-dessus peut-être ré-écrit de cette façon::
 
         import music
 
@@ -94,14 +96,14 @@ play opening of "Frere Jaques"::
                 "E:4", "F", "G:8"]
         music.play(tune)
 
-    Notice how the octave and duration values only change when they have to.
-    It's a lot less typing and simpler to read.
+    Remarque que l'octave et la durée ne changent que lorsqu'elles le doivent.
+    Ça fait beaucoup moins à taper et c'est plus simple à lire.
 
-Sound Effects
-+++++++++++++
+Effets sonores
+++++++++++++++
 
-MicroPython lets you make tones that are not musical notes. For example, here's
-how to create a Police siren effect::
+MicroPython te permets de faire des sons qui ne sont pas des notes de musique.
+Par exemple, voici comment créer un effet de sirène de police::
 
     import music
 
@@ -111,27 +113,28 @@ how to create a Police siren effect::
         for freq in range(1760, 880, -16):
             music.pitch(freq, 6)
 
+Remarque comment la méthode ``music.pitch`` est utilisée dans cet exemple. Elle
+attend une fréquence.  Par exemple, une fréquence de ``440`` est la même chose
+qu'une note ``A`` (qui correspond au LA) utilisée pour accorder un orchestre
+symphonique.
 
-Notice how the ``music.pitch`` *method* is used in this instance. It expects a
-frequency. For example, the frequency of ``440`` is the same as a concert ``A``
-used to tune a symphony orchestra.
+Dans l'exemple ci-dessus la fonction ``range`` est utilisée pour générer un
+assortiment de valeurs numériques. Ces nombres sont utiliser pour définir la
+hauteur du ton. Les trois arguments de la fonction ``range`` sont la valeur de
+départ, la valeur de fin et la taille du pas. Ainsi, la première utilisation de
+``range`` consiste à de dire, en français, "créé un assortiment de nombres compris
+entre 880 et 1760 de 16 en 16". Sa deuxième utilisation dit "créé un assortiment
+de nombres compris entre 1760 et 880 de -16 en -16". C'est comme ça que l'on
+obtient une liste de fréquences qui montent puis qui descendent comme une sirène.
 
-In the example above the ``range`` function is used to generate ranges of
-numeric values. These numbers are used to define the pitch of the tone. The
-three arguments for the ``range`` function are the start value, end value and
-step size. Therefore, the first use of ``range`` is saying, in English, "create
-a range of numbers between 880 and 1760 in steps of 16". The second use of
-``range`` is saying, "create a range of values between 1760 and 880 in steps of
--16". This is how we get a range of frequencies that go up and down in pitch
-like a siren.
+Puisque la sirène doit durer éternellement, elle est contenue dans une boucle
+``while`` infinie.
 
-Because the siren should last forever it's wrapped in an infinite ``while``
-loop.
-
-Importantly, we have introduced a new sort of a loop inside the ``while``
-loop: the ``for`` loop. In English it's like saying, "for each item in some
-collection, do some activity with it". Specifically in the example above, it's
-saying, "for each frequency in the specified range of frequencies, play the
-pitch of that frequency for 6 milliseconds". Notice how the thing to do for
-each item in a for loop is indented (as discussed earlier) so Python knows
-exactly which code to run to handle the individual items.
+surtout, nous avons introduit une nouvelle sorte de boucle à l'intérieur de la
+boucle ``while``: la boucle ``for``. En français ça revient à dire "pour chaque
+élément dans une certaine collection, fais des trucs avec". Plus précisément,
+dans l'exemple ci-dessus ça dit "pour chaque fréquences dans l'assortiment de
+fréquences, joue la hauteur de cette fréquence pendant 6 millisecondes". Remarque
+que les choses à faire dans cette boucle sont indentée (comme on l'a vu
+précédemment) de façon à ce que Python sache quel code exécuter avec chaque
+élément.
