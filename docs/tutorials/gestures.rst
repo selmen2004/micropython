@@ -1,9 +1,12 @@
-Gestures
+Gestes
 --------
 
 The really interesting side-effect of having an accelerometer is gesture
 detection. If you move your BBC micro:bit in a certain way (as a gesture) then
 MicroPython is able to detect this.
+
+L'eefet collatéral le plus intéressant d'un accélèromètre est la détection des
+gestes.
 
 MicroPython is able to recognise the following gestures: ``up``, ``down``,
 ``left``, ``right``, ``face up``, ``face down``, ``freefall``, ``3g``, ``6g``,
@@ -12,27 +15,42 @@ the names should be obvious, the ``3g``, ``6g`` and ``8g`` gestures apply when
 the device encounters these levels of g-force (like when an astronaut is
 launched into space).
 
-To get the current gesture use the ``accelerometer.current_gesture`` method.
-Its result is going to be one of the named gestures listed above. For example,
-this program will only make your device happy if it is face up::
+MicroPython est capable de reconnaître les gestes suivants:
+- haut-> ``up``
+- bas -> ``down``
+- gauche -> ``left``
+- droite -> ``right``
+- face en haut -> ``face up``
+- face en bas -> ``face down``
+- chute libre ->  ``free fall``
+- accélération correspondant à 3, 6 ou 8 fois celle de la chute libre -> ``3g``
+,  ``6g`` ou ``8g``
+- secousse -> ``shake``
+Les gestes sonttoujours représentés par des chaînes de caractères.
+
+
+Pour obtenir le geste effectué, on utilise la méthode ``accelerometer.current_gesture``.
+Son résultats est l'un des noms de gestes listés ci-dessus. Par exemple, ce
+programme rendra votre appareil heureux seulement lorsque sa face est tournée
+vers le haut ::
 
     from microbit import *
 
     while True:
-        gesture = accelerometer.current_gesture()
-        if gesture == "face up":
+        geste = accelerometer.current_gesture()
+        if geste == "face up":
             display.show(Image.HAPPY)
         else:
             display.show(Image.ANGRY)
 
-Once again, because we want the device to react to changing circumstances we
-use a ``while`` loop. Within the *scope* of the loop the current gesture is
-read and put into ``gesture``. The ``if`` conditional checks if ``gesture`` is
-equal to ``"face up"`` (Python uses ``==`` to test for equality, a single
-equals sign ``=`` is used for assignment - just like how we assign the gesture
-reading to the ``gesture`` object). If the gesture is equal to ``"face up"``
-then use the display to show a happy face. Otherwise, the device is made to
-look angry!
+Encore une fois, puisque nous voulons que l'appareil réagisse à des circomstances
+changeantes, nous utilisons une voucle ``while``. A l'intérieur du coprs de la
+boucle, le geste est lu et stocké dans ``geste``. L'instruction conditionnelle
+``if`` verifie si ``geste`` est égal à ``face up`` (Python utilise ``==`` pour
+tester une égalité car un simple signe égal ``=`` est utilisé pour l'affectation -
+tout comme nous affectons le geste lu à l'objet ``geste``). Si le geste est égal
+à ``face up`` alors on utilise l'affichage pour montrer un visage heureux. Sinon,
+l'appareil a l'air mécontent.
 
 Magic-8
 +++++++
@@ -41,30 +59,34 @@ A Magic-8 ball is a toy first invented in the 1950s. The idea is to ask
 it a yes/no question, shake it and wait for it to reveal the truth. It's rather
 easy to turn into a program::
 
+Une balle Magic-8 est un jouet inventé dans les année 1950. L'idée est de lui poser
+une question à laquelle on peut répondre oui ou non, de la secouer et d'attendre
+qu'elle nous révèle la vérité. C'est plutôt facile à programmer::
+
     from microbit import *
     import random
 
-    answers = [
-        "It is certain",
-        "It is decidedly so",
-        "Without a doubt",
-        "Yes, definitely",
-        "You may rely on it",
-        "As I see it, yes",
-        "Most likely",
-        "Outlook good",
-        "Yes",
-        "Signs point to yes",
-        "Reply hazy try again",
-        "Ask again later",
-        "Better not tell you now",
-        "Cannot predict now",
-        "Concentrate and ask again",
-        "Don't count on it"
-        "My reply is no",
-        "My sources say no",
-        "Outlook not so good",
-        "Very doubtful",
+    reponses = [
+         "C'est certain",
+         "C'est décidément ainsi",
+         "Sans aucun doute",
+         "Oui définitivement",
+         "Vous pouvez compter dessus",
+         "Comme je le vois, oui",
+         "Probablement",
+         "ça semble bien",
+         "Oui",
+         "Les signes pointent vers Oui",
+         "Réponse brumeuse, essaye encore",
+         "Demander à nouveau plus tard",
+         "Mieux vaut ne pas te le dire maintenant",
+         "Je ne peux pas prédire maintenant",
+         "Concentre-toi et demande à nouveau",
+         "Ne compte pas dessus"
+         "Ma réponse est non",
+         "Mes sources disent non",
+         "ça ne semble pas si bon",
+         "Très douteux",
     ]
 
     while True:
@@ -72,19 +94,23 @@ easy to turn into a program::
         if accelerometer.was_gesture("shake"):
             display.clear()
             sleep(1000)
-            display.scroll(random.choice(answers))
+            display.scroll(random.choice(reponses))
 
-Most of the program is a list called ``answers``. The actual game is in the
-``while`` loop at the end.
+La plus grande partie du programme une liste nommée ``réponses``. Le jeu se
+trouve dans la boucle ``while`` à la fin.
 
-The default state of the game is to show the character ``"8"``. However, the
-program needs to detect if it has been shaken. The ``was_gesture`` method uses
-its argument (in this case, the string ``"shake"`` because we want to detect
-a shake) to return a ``True`` / ``False`` response. If the device was shaken
-the ``if`` conditional drops into its block of code where it clears the screen,
-waits for a second (so the device appears to be thinking about your question)
-and displays a randomly chosen answer.
+L'état  par défaut du jeu est l'affichage du caractère ``"8"``. Le programme doit
+détecter si le micro:bit a été secoué. La méthode ``was_gesture`` utilise son
+argument (dans ce cas ``shake`` puique l'on veut détecter une secousse) pour
+retourner un ``True`` ou un ``False``. Si l'appareil a été secoué, l'instruction
+``if`` exécutera le bloc de code dans lequel l'écran est effacé pendant une seconde
+ (de façon à ce que l'appareil semble réfléchir à ta question) et affiche une
+ réponse choisie au hasard.
 
 Why not ask it if this is the greatest program ever written? What could you do
 to "cheat" and make the answer always positive or negative? (Hint: use the
 buttons.)
+
+Pourquoi ne pas lui demander si c'est le meilleurs programme jamais écrit ? Que
+pourrais-tu faire pour "tricher" et faire en sorte que la réponse soit toujours
+positive ou négative ? (Indice : utilise les boutons.)
