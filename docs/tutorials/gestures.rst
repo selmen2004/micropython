@@ -5,8 +5,8 @@ L'effet collatéral le plus intéressant d'un accélèromètre est la détection
 gestes.
 
 MicroPython est capable de reconnaître les gestes suivants:
-- haut-> ``up``
-- bas -> ``down``
+* haut-> ``up``
+* bas -> ``down``
 - gauche -> ``left``
 - droite -> ``right``
 - face en haut -> ``face up``
@@ -86,8 +86,8 @@ détecter si le micro:bit a été secoué. La méthode ``was_gesture`` utilise s
 argument (dans ce cas ``shake`` puique l'on veut détecter une secousse) pour
 retourner un ``True`` ou un ``False``. Si l'appareil a été secoué, l'instruction
 ``if`` exécutera le bloc de code dans lequel l'écran est effacé pendant une seconde
- (de façon à ce que l'appareil semble réfléchir à ta question) et affiche une
- réponse choisie au hasard.
+(de façon à ce que l'appareil semble réfléchir à ta question) et affiche une 
+réponse choisie au hasard.
 
 Pourquoi ne pas lui demander si c'est le meilleurs programme jamais écrit ? Que
 pourrais-tu faire pour "tricher" et faire en sorte que la réponse soit toujours
