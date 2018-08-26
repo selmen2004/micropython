@@ -81,8 +81,6 @@ est le moyen qu'ont les bon développeurs de logiciel d'apprendre**. Ceux parmi
 nous qui développent des logiciels s'amusent beaucoup à rechercher les bugs et à 
 éviter la répétition des erreurs.
 
-If in doubt, remember the Zen of MicroPython::
-
 En cas de doute, rappele-toi la maxime Zen de MicroPython::
 
     Code,
