@@ -1,19 +1,8 @@
 Gestes
 --------
 
-The really interesting side-effect of having an accelerometer is gesture
-detection. If you move your BBC micro:bit in a certain way (as a gesture) then
-MicroPython is able to detect this.
-
-L'eefet collatéral le plus intéressant d'un accélèromètre est la détection des
+L'effet collatéral le plus intéressant d'un accélèromètre est la détection des
 gestes.
-
-MicroPython is able to recognise the following gestures: ``up``, ``down``,
-``left``, ``right``, ``face up``, ``face down``, ``freefall``, ``3g``, ``6g``,
-``8g``, ``shake``. Gestures are always represented as strings. While most of
-the names should be obvious, the ``3g``, ``6g`` and ``8g`` gestures apply when
-the device encounters these levels of g-force (like when an astronaut is
-launched into space).
 
 MicroPython est capable de reconnaître les gestes suivants:
 - haut-> ``up``
@@ -26,8 +15,7 @@ MicroPython est capable de reconnaître les gestes suivants:
 - accélération correspondant à 3, 6 ou 8 fois celle de la chute libre -> ``3g``
 ,  ``6g`` ou ``8g``
 - secousse -> ``shake``
-Les gestes sonttoujours représentés par des chaînes de caractères.
-
+Les gestes sont toujours représentés par des chaînes de caractères.
 
 Pour obtenir le geste effectué, on utilise la méthode ``accelerometer.current_gesture``.
 Son résultats est l'un des noms de gestes listés ci-dessus. Par exemple, ce
@@ -55,17 +43,12 @@ l'appareil a l'air mécontent.
 Magic-8
 +++++++
 
-A Magic-8 ball is a toy first invented in the 1950s. The idea is to ask
-it a yes/no question, shake it and wait for it to reveal the truth. It's rather
-easy to turn into a program::
-
 Une balle Magic-8 est un jouet inventé dans les année 1950. L'idée est de lui poser
 une question à laquelle on peut répondre oui ou non, de la secouer et d'attendre
 qu'elle nous révèle la vérité. C'est plutôt facile à programmer::
 
     from microbit import *
     import random
-
     reponses = [
          "C'est certain",
          "C'est décidément ainsi",
@@ -88,7 +71,7 @@ qu'elle nous révèle la vérité. C'est plutôt facile à programmer::
          "ça ne semble pas si bon",
          "Très douteux",
     ]
-
+    
     while True:
         display.show("8")
         if accelerometer.was_gesture("shake"):
@@ -106,10 +89,6 @@ retourner un ``True`` ou un ``False``. Si l'appareil a été secoué, l'instruct
 ``if`` exécutera le bloc de code dans lequel l'écran est effacé pendant une seconde
  (de façon à ce que l'appareil semble réfléchir à ta question) et affiche une
  réponse choisie au hasard.
-
-Why not ask it if this is the greatest program ever written? What could you do
-to "cheat" and make the answer always positive or negative? (Hint: use the
-buttons.)
 
 Pourquoi ne pas lui demander si c'est le meilleurs programme jamais écrit ? Que
 pourrais-tu faire pour "tricher" et faire en sorte que la réponse soit toujours
