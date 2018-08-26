@@ -35,8 +35,8 @@ apparait comme un stockage USB dans ton explorateur de fichiers.
     radio
     next
 
-Python est l'un des langages de programmation
- `les plus populaires du monde <http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html>`_.
+
+Python est l'un des langages de programmation  `les plus populaires du monde <http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html>`_.
 Tous les jours, sans le savoir, tu tuilises probablement un logiciel écrit en
 Python. Toutes sortes de sociétés et d'organisations utilisent Python dans une
 grande variété d'applications. Google, NASA, Bank of America, Disney, CERN,
@@ -77,7 +77,7 @@ un BBC micro:bit avec un code incorrect. Lance-toi !
 
 
 Un mot d'avertissement : *tu vas souvent rater*, et ce n'est pas grave. **L'échec
-est le moyen qu'on les bon développeurs de logiciel d'apprendre**. Ceux parmi
+est le moyen qu'ont les bon développeurs de logiciel d'apprendre**. Ceux parmi
 nous qui développent des logiciels s'amusent beaucoup à rechercher les bugs et à 
 éviter la répétition des erreurs.
 
