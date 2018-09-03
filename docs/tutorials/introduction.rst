@@ -78,14 +78,14 @@ un BBC micro:bit avec un code incorrect. Lance-toi !
 
 Un mot d'avertissement : *tu vas souvent rater*, et ce n'est pas grave. **L'échec
 est le moyen qu'ont les bon développeurs de logiciel d'apprendre**. Ceux parmi
-nous qui développent des logiciels s'amusent beaucoup à rechercher les bugs et à 
+nous qui développent des logiciels s'amusent beaucoup à rechercher les bugs et à
 éviter la répétition des erreurs.
 
 En cas de doute, rappele-toi la maxime Zen de MicroPython::
 
     Code,
     Bidouille,
-    Moins est plus,
+    Sobriété,
     Reste simple,
     Petit, c'est beau,
 
