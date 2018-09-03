@@ -1,83 +1,88 @@
-Random
+Hasard
 ------
 
-Sometimes you want to leave things to chance, or mix it up a little: you want
-the device to act randomly.
+Des fois tu as envie des laisser le hasard choisir, ou d'introduire un peu de
+hasard: tu veux que l'appareil agisse aléatoirement.
 
-MicroPython comes with a ``random`` module to make it easy to introduce chance
-and a little chaos into your code. For example, here's how to scroll a random
-name across the display::
+MicroPython est fourni avec un module ``random`` qui facilite l'introduction de
+hasard et d'un peu de chaos dans ton code. Par exemple, voilà comment monter un
+nom au hasard sur l'affichage::
 
     from microbit import *
     import random
 
-    names = ["Mary", "Yolanda", "Damien", "Alia", "Kushal", "Mei Xiu", "Zoltan" ]
+    noms = ["Mary", "Yolanda", "Damien", "Alia", "Kushal", "Mei Xiu", "Zoltan" ]
 
-    display.scroll(random.choice(names))
+    display.scroll(random.choice(noms))
 
-The list (``names``) contains seven names defined as strings of characters.
-The final line is *nested* (the "onion" effect introduced earlier): the
-``random.choice`` method takes the ``names`` list as an argument and returns
-an item chosen at random. This item (the randomly chosen name) is the argument
-for ``display.scroll``.
+La liste ``noms`` cntient sept noms définis par des chaînes de caractères. La
+ligne finale est *imbriquée* (L'effet *oignon* présenté plus tôt): la méthode
+``random.choice`` prend la liste ``noms`` comme argument et renvoie un élément
+choisi au hasard. Cet élément (le nom choisi au hasard) est l'argument de la
+méthode ``dispaly.scroll``.
 
-Can you modify the list to include your own set of names?
+Peux-tu modifier la liste pour y inculre ton propre ensemble de noms ?
 
-Random Numbers
-++++++++++++++
+Nombres aléatoires
+++++++++++++++++++
 
-Random numbers are very useful. They're common in games. Why else do we have
-dice?
+Les nombres aléatoires sont très utiles. Ils sont communs dans les jeux. Pour
+quelle autre raison avons-nous des dés ?
 
-MicroPython comes with several useful random number methods. Here's how to
-make a simple dice::
+MicroPython est fourni avec plusieurs méthodes utiles pour les nombres aléatoires.
+Voici comment faire un simple dé::
 
     from microbit import *
     import random
 
     display.show(str(random.randint(1, 6)))
 
-Every time the device is reset it displays a number between 1 and 6. You're
-starting to get familiar with *nesting*, so it's important to note that
-``random.randint`` returns a whole number between the two arguments, inclusive
-(a whole number is also called an integer - hence the name of the method).
-Notice that because ``display.show`` expects a character then we use the
-``str`` function to turn the numeric value into a character (we turn, for
-example, ``6`` into ``"6"``).
+A chaque fois que l'appareil est réinitialisé, il affiche un nombre entre 1 et 6.
+Tu commences à avoir l'habitude de l'imbrication, donc il est important que tu
+remarques ``random.randint`` renvoie un nombre entier entre ses deux arguments
+inclus (un nombre entier est appelé *integer*en anglais d'où le nom de la méthodes ).
+Remarque que puisque ``dispaly.show`` nécessite un argument sous forme de caractère
+on utilise la fonction ``str```pour convertir la valeur numérique en un caractère
+(on converti par exemple ``6`` en ``"6"``)
 
-If you know you'll always want a number between ``0`` and ``N`` then use the
-``random.randrange`` method. If you give it a single argument it'll return
-random integers up to, but not including, the value of the argument ``N``
-(this is different to the behaviour of ``random.randint``).
+Si tu sais que tu voudras toujours un nombre entre ``0`` et ``N`` alors tu dois
+utiliser la méthode ``random.range``. Si tu lui fournis un seul argument elle te
+renverra un entier aléatoire strictement inférieur à cet argument. (ce qui est
+différent du comportement de la méthode``random.randint)
 
-Sometimes you need numbers with a decimal point in them. These are called
-*floating point* numbers and it's possible to generate such a number with the
-``random.random`` method. This only returns values between ``0.0`` and ``1.0``
-inclusive. If you need larger random floating point numbers add the results
-of ``random.randrange`` and ``random.random`` like this::
+Des fois tu as besoin de nombres décimaux. Ils sont appelés nombres * à virgule
+flottante* en informatique souvent abrégé en ``float`` et il est possible d'en
+générer de façon aléatoire avec la méthode ``random.random``. Elle ne renvoie que
+des valeurs comprises entre ``0.0`` et ``1.0`` inclus. Si tu as besoin de nombres
+décimaux aléatoires plus grand, ajoute les résultats de ``random.randrange`` et
+de ``random.random`` comme ça::
 
     from microbit import *
     import random
 
-    answer = random.randrange(100) + random.random()
-    display.scroll(str(answer))
+    reponse = random.randrange(100) + random.random()
+    display.scroll(str(reponse))
 
-Seeds of Chaos
-++++++++++++++
+Les Graines du Chaos
+++++++++++++++++++++
 
-The random number generators used by computers are not truly random. They just
-give random like results given a starting *seed* value. The seed is often
-generated from random-ish values such as the current time and/or readings from
-sensors such as the thermometers built into chips.
+Les générateurs de nombres aléatoire d'un ordinateur ne sont pas vraiment aléatoires.
+Ils fournissent seulement des résultats semblant aléatoires étant donnée une
+valeur initiale appelée valeur *graine*) (ou *seed* en anglais). Cette graine est
+souvent générée à partir de valeurs plus ou moins aléatoire comme l'heure du
+moment ou des lectures de capteurs comme des thermomètres intégrés aux puces
+électroniques.
 
-Sometimes you want to have repeatable random-ish behaviour: a source of
-randomness that is reproducible. It's like saying that you need the same five
-random values each time you throw a dice.
+Parfois tu auras besoin d'un comportement à peu près aléatoire mais répétable:
+c'est-à-dire une source de hasard reproductible. C'est comme de dire que tu veux
+les mêmes cinq valeurs aléatoire à chaque fois que tu lances cinq fois de suite
+un dé.
 
-This is easy to achieve by setting the *seed* value. Given a known seed the
-random number generator will create the same set of random numbers. The seed is
-set with ``random.seed`` and any whole number (integer). This version of the
-dice program always produces the same results::
+C'est facile à accomplir en fixant toi-même la valeur *graine*. A partir d'une
+même valeur *graine* le générateur de nombres aléatoires produira toujours la
+même suite de nombres "aléatoires". La graine est fixée avec la méthode ``random.seed``
+et n'importe quel nombre entier. Cette version du programme de dé produit toujours
+les même résultats::
 
     from microbit import *
     import random
@@ -87,5 +92,5 @@ dice program always produces the same results::
         if button_a.was_pressed():
             display.show(str(random.randint(1, 6)))
 
-Can you work out why this program needs us to press button A instead of reset
-the device as in the first dice example..?
+Comprends-tu pourquoi ce programme nécessite l'appuie sur le bouton A plutôt que
+de réinitialier le micro:bit comme dans le premier exemple ?
