@@ -3,36 +3,34 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-BBC micro:bit MicroPython documentation
-=======================================
+Documentation du BBC micro:bit MicroPython
+==========================================
 
-Welcome!
+Bienvenu!
 
-The BBC micro:bit is a small computing device for children. One of the
-languages it understands is the popular Python programming language. The
-version of Python that runs on the BBC micro:bit is called MicroPython.
+Le BBC micro:bit est un petit dispositif informatique pour les enfants. L'un des
+langages qu'il comprend est le langage de programmation poopulaire Python. La
+version utilisée sur le BBC micro:bit est appelée MicroPython.
 
-This documentation includes lessons for teachers
-and API documentation for developers (check out the index on the left). We hope
-you enjoy developing for the BBC micro:bit using MicroPython.
+Cette documentation comprend des leçons pour les enseignants et une documentation
+de l'API pour les développeurs ( regarde l'index sur la gauche ). Nous espérons
+que tu aimeras développer en MicroPython pour le BBC micro:bit.
 
-If you're a new programmer, teacher or unsure where to start, begin with the tutorials.
+Si tu es un programmeur débutant, un enseignant où si tu ne sais pas par quoi
+commencer, vas voir les tutoriels.
 
 .. image:: comic.png
 
-To get involved with the community subscribe to the microbit@python.org
-mailing list (https://mail.python.org/mailman/listinfo/microbit).
-
 .. note::
 
-    This project is under active development. Please help other
-    developers by adding tips, how-tos, and Q&A to this document.
-    Thanks!
+    Ce projet est en cours de développement. Merci d'aider les autre développeurs
+    en ajoutant des astuces, des guides et des questions/réponses à ce document.
+    On te remercie d'avance !
 
-Projects related to MicroPython on the BBC micro:bit include:
+Les projets lié au MicroPython sur le BBC micro:bit comprennent :
 
-* `Mu <https://github.com/ntoll/mu>`_ - a simple code editor for kids, teachers and beginner programmers. Probably the easiest way for people to program MicroPython on the BBC micro:bit.
-* `uFlash <https://uflash.readthedocs.io/en/latest/>`_ - a command line tool for flashing raw Python scripts onto a BBC micro:bit.
+* `Mu <https://github.com/ntoll/mu>`_ - un éditeur de code simple pour les enfants, les enseignants et les programmeurs débutants. C'est probablement la façon la plus simple de programmer en MicroPython sur le BBC micro:bit.
+* `uFlash <https://uflash.readthedocs.io/en/latest/>`_ - un outil en ligne de commande pour flasher des script Python directement sur le BBC micro:bit.
 
 .. toctree::
     :maxdepth: 2
