@@ -2,14 +2,14 @@ Introduction
 ------------
 
 Nous suggérons de télécharger et d'utiliser `l'éditeur mu <http://codewith.mu/>`_
-pour travailler avec ces tutoriaux. Les instructions pour télécharger et installer
+pour travailler avec ces tutoriels. Les instructions pour télécharger et installer
 Mu se trouvent sur son site. Tu seras peut-être amené à installer un pilote de
 périphérique selon ton système d'exploitation (les instructions sont sur le site
 web).
 
 Mu fonctionne sous Windows, OSX et Linux.
 
-Une fois que Mu est installé, connect ton micro:bit à ton ordinateur avec un
+Une fois que Mu est installé, connecte ton micro:bit à ton ordinateur avec un
 câble USB.
 
 Ecris ton script dans la fenêtre d'édition et click sur le bouton "Flash" pour le
@@ -37,7 +37,7 @@ apparait comme un stockage USB dans ton explorateur de fichiers.
 
 
 Python est l'un des langages de programmation  `les plus populaires du monde <http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html>`_.
-Tous les jours, sans le savoir, tu tuilises probablement un logiciel écrit en
+Tous les jours, sans le savoir, tu utilises probablement un logiciel écrit en
 Python. Toutes sortes de sociétés et d'organisations utilisent Python dans une
 grande variété d'applications. Google, NASA, Bank of America, Disney, CERN,
 YouTube, Mozilla, The Guardian - la liste continue et couvre tous les secteurs
@@ -46,23 +46,23 @@ de l'économie, des sciences et des arts.
 Par exemple, te rappeles-tu de l'annonce de  `la découverte des ondes gravitationelles <http://www.bbc.co.uk/news/science-environment-35552207>`_?
 Les instruments utilisés pour faire les mesures étaient controllés `avec Python <https://www.reddit.com/r/IAmA/comments/45g8qu/we_are_the_ligo_scientific_collaboration_and_we/czxnlux>`_.
 
-Dit simplement, si tu enseigne ou apprend Python, tu développes un talent de grande
+Dit simplement, si tu enseignes ou apprends le Python, tu développes un talent de grande
 valeur qui s'applique à tous les domaines de l'activté humaine.
 
 L'un de ces domaines est l'appareil micro:bit de la BBC. Il embarque une version
 de Python appelée MicroPython qui est destinée à tourner sur de petits ordinateurs
 comme le BBC micro:bit. C'est une implémentation complète de Python 3 donc lorsque
-tu passeras sur d'autres ordinateurs (comme programmer en Python sur une Raspberry
- Pi) tu utiliseras exactement le même langage.
+tu passeras sur d'autres ordinateurs (comme programmer en Python sur une carte
+Raspberry Pi) tu utiliseras exactement le même langage.
 
-MicroPython n'inclut pas toutes les bibliothèques standards qui sont présente
+MicroPython n'inclut pas toutes les bibliothèques standards qui sont présentes
 dans la version "habituelle" de Python. Néanmoins, nous avons créé un module
-spécial ``microbit`` dans MicroPython qui te permet de controller l'appareil.
+spécial ``microbit`` dans MicroPython qui te permet de contrôler l'appareil.
 
 Python et MicroPython sont des logiciels libres. Cela ne signifie pas seulement
-qu'il n'y a rien a payer pour utiliser Python, mais aussi que tu es libre de
+qu'il n'y a rien à payer pour utiliser Python, mais aussi que tu es libre de
 contribuer à la communauté Python. Cela peut être fait sous la forme de code,
-de documentation, de rapports de bugs, gérer un groupe ou écrire des tutoriels
+de documentation, de rapports de bugs, de gestion de groupe ou d'écriture de tutoriels
 (comme celui-ci). En fait, toutes les ressources Python pour le BBC micro:bit ont
 été créées par une équipe internationale de bénévoles travaillant sur leur temps
 libre.

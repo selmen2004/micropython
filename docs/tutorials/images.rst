@@ -141,9 +141,9 @@ Python sait que c'est une liste car elle est contenue dans des crochets (``[``
 et ``]``). Les éléments de la liste sont séparés par des virgules (``,``) et dans
 cet exemple les éléments sont trois chaînes de caractères: ``"Oeufs"``, ``"Bacon"``
 et ``"Tomates"``. Nous savons que ce sont des chaînes de caractères parce qu'elles
-sont contenues des des guillemets ``"``.
+sont contenues des guillemets ``"``.
 
-Tu peux stocker n'importe quoi dans une lsite en Python. Voici une liste de
+Tu peux stocker n'importe quoi dans une liste en Python. Voici une liste de
 nombres::
 
     premiers = [2, 3, 5, 7, 11, 13, 17, 19]
@@ -153,11 +153,11 @@ nombres::
 
     Les nombres n'ont pas besoin d'être entre guillemets puisqu'ils représentent
     une valeur (plutôt qu'une chaînes de caractères). C'est la différence entre
-    ``2`` (la valeur numérique 2) et ``"2"`` (le caractères, le chiffre qui
+    ``2`` (la valeur numérique 2) et ``"2"`` (le caractères, le chiffre, qui
     représente le nombre 2). Ne t'inquiète pas si ce n'est pas très clair pour
     l'instant. Tu t'y habitueras bientôt.
 
-Il est même possuble de stocker des choses de catégories différentes dans une
+Il est même possible de stocker des choses de catégories différentes dans une
 même liste::
 
     list_variee = ["salut!", 1.234, Image.HAPPY]
@@ -165,7 +165,7 @@ même liste::
 As-tu remarqué le dernier élément? C'était une image!
 
 On peut dire à MicroPython d'animer une liste d'images. Par chance npus avons
-deux lists d'images déjà prêtes. Elles s'appellent ``Image.ALL_CLOCKS`` et
+deux listes d'images déjà prêtes. Elles s'appellent ``Image.ALL_CLOCKS`` et
 ``Image.ALL_ARROWS``::
 
     from microbit import *
@@ -176,12 +176,12 @@ Comme avec une seule image, on utilise ``display.show`` pour la montrer sur
 l'affichage du matériel. Mais ici on indique à MicroPython d'utiliser ``Image.ALL_CLOCKS``
 et il comprend qu'il doit montrer chaque image de la liste, l'une après l'autre.
 On indique aussi à MicroPython de parcourir la liste d'images en boucle (pour
-que l'animation dure pour toujours) en écrivant ``loop=True``. De plus, nous lui
+que l'animation se répète indéfiniment) en écrivant ``loop=True``. De plus, nous lui
 indiquons que nous voulons un temps de 10 millisecondes entre chaque image avec
 l'argument ``delay=100``.
 
 Peux-tu trouver comment animer la liste ``Image.ALL_ARROWS`` ? Comment éviterais-tu
-de la parcourir en boucle éternellement ? (Indice: le contraire de ``True`` est
+de la parcourir en boucle indéfiniment ? (Indice: le contraire de ``True`` est
 ``False`` bien que la valeur par défaut de ``loop`` soit ``False``)? Peux-tu changer
 la vitesse de l'animation ?
 
@@ -231,9 +231,9 @@ couler mon bateau en bas de l'affichage::
 
 Voici comment le code marche:
 
-* Je créé six images de ``bateau`` de la même façon que ce que j'ai décris au-dessus
+* Je créé six images de ``bateau`` de la même façon que ce que j'ai décris au-dessus.
 * Ensuite, je les mets dans une liste que j'appelle ``tous_les_bateaux``
-* Enfin, je demande ``dispaly.show`` pour animer la liste avec un délai de 200 millisecondes
+* Enfin, je demande ``display.show`` pour animer la liste avec un délai de 200 millisecondes
 * Puisque je n'ai pas déclaré ``loop=True``, le bateau ne coulera qu'une fois
 (rendant ainsi mon animation scientifiquement correcte). :-)
 

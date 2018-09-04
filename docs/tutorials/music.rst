@@ -3,7 +3,7 @@ Musique
 
 MicroPython sur le BBC micro:bit est fourni avec un module de musique et de son
 puissant. Il est très facile de générer des bips avec l'appareil *si tu le
-raccordes à un haut-parleur*. Utilise des pinces crocodile pour relier les pns 0
+raccordes à un haut-parleur*. Utilise des pinces crocodile pour relier les pins 0
 et GND aux entrées positives et négatives du haut-parleur.
 
 .. image:: pin0-gnd.png
@@ -58,7 +58,7 @@ Créer ta propre mélodie est facile !
 
 Chaque note a un nom (comme ``C#`` ou ``F``), une octave (pour dire à MicroPython
 à quelle hauteur il faut jouer la note) et une durée (combien de temps elle dure).
-Les octaves sont indiquée par un nombre ~ 0 est la plus basse et 8 est à peu près
+Les octaves sont indiquées par un nombre ~ 0 est la plus basse et 8 est à peu près
 aussi haut que ce dont tu auras besoin à moins que tu ne fasses de la musique
 pour chiens. La durée s'exprime aussi à l'aide de nombres. Plus la valeur de la
 durée est grande plus la note sera jouée longtemps. Ces valeurs sont reliées
@@ -86,8 +86,8 @@ MicroPython le début de "Frère Jacques"::
 
 .. note::
 
-    MicroPython t'aide à simplifier de telles mélodies. Il se rappelera de
-    l'ocatve et de la durée jusqu'à ce que tu les changes. Grâce à cela,
+    MicroPython t'aide à simplifier de telles mélodies. Il se rappellera de
+    l'octave et de la durée jusqu'à ce que tu les changes. Grâce à cela,
     l'exemple ci-dessus peut-être ré-écrit de cette façon::
 
         import music
@@ -119,10 +119,10 @@ qu'une note ``A`` (qui correspond au LA) utilisée pour accorder un orchestre
 symphonique.
 
 Dans l'exemple ci-dessus la fonction ``range`` est utilisée pour générer un
-assortiment de valeurs numériques. Ces nombres sont utiliser pour définir la
+assortiment de valeurs numériques. Ces nombres sont utilisés pour définir la
 hauteur du ton. Les trois arguments de la fonction ``range`` sont la valeur de
 départ, la valeur de fin et la taille du pas. Ainsi, la première utilisation de
-``range`` consiste à de dire, en français, "créé un assortiment de nombres compris
+``range`` consiste à dire, en français, "créé un assortiment de nombres compris
 entre 880 et 1760 de 16 en 16". Sa deuxième utilisation dit "créé un assortiment
 de nombres compris entre 1760 et 880 de -16 en -16". C'est comme ça que l'on
 obtient une liste de fréquences qui montent puis qui descendent comme une sirène.
@@ -130,11 +130,11 @@ obtient une liste de fréquences qui montent puis qui descendent comme une sirè
 Puisque la sirène doit durer éternellement, elle est contenue dans une boucle
 ``while`` infinie.
 
-surtout, nous avons introduit une nouvelle sorte de boucle à l'intérieur de la
+Surtout, nous avons introduit une nouvelle sorte de boucle à l'intérieur de la
 boucle ``while``: la boucle ``for``. En français ça revient à dire "pour chaque
 élément dans une certaine collection, fais des trucs avec". Plus précisément,
 dans l'exemple ci-dessus ça dit "pour chaque fréquences dans l'assortiment de
 fréquences, joue la hauteur de cette fréquence pendant 6 millisecondes". Remarque
-que les choses à faire dans cette boucle sont indentée (comme on l'a vu
+que les choses à faire dans cette boucle sont indentées (comme on l'a vu
 précédemment) de façon à ce que Python sache quel code exécuter avec chaque
 élément.

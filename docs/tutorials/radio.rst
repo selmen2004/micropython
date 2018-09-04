@@ -1,7 +1,7 @@
 Radio
 -----
 
-Linteraction à distance ressemble à de la magie.
+L'interaction à distance ressemble à de la magie.
 
 La magie peut être utile si tu es un elfe, un sorcier ou une licorne, mais ces
 choses n'existent que dans les histoires.
@@ -12,7 +12,7 @@ L'interaction sans fil n'est que de la physiwue : les ondes radio (une sorte de
 radiation électromagnétique, un peu comme la lumière visible) ont certaines
 propriétés (comme l'amplitude, la pulsation ou la période) modulées par un
 émetteur de façon à ce que cette information puisse être encodée et ainsi diffusée.
-Lorsque des ondes radio rencontre un conducteur électrique (c'est-à-dire une
+Lorsque des ondes radio rencontrent un conducteur électrique (c'est-à-dire une
 antenne), elles provoquent l'apparition d'un courant alternatif duquel
 l'information contenue dans les ondes peut être extraite et retraduite dans sa
 forme originale.
@@ -30,7 +30,7 @@ l'invisible connexion entre les appareils.
 
 La couche suivante dans la pile réseau est également différente par rapport à
 notre exemple dans le tutoriel sur les réseaux. Dans l'exemple câblé on utilisait
-le on et le off digital (1 ou 0) pour envoyer et recevoir un signal. Avec le
+le *on* et le *off* digital (1 ou 0) pour envoyer et recevoir un signal. Avec le
 module radio inclu sur le micro:bit la plus petite partie utilisable d'un signal
 est l'octet.
 
@@ -39,19 +39,19 @@ Octets
 
 Un octet est une unité d'information qui est (habituellement) constituée de huit
 bits. Un bit est la plus petite unité d'information possible puisqu'il ne peut
-être que dans deux états : éteint ou allumé (on ou off ~ 1 ou 0)
+être que dans deux états : éteint ou allumé (*on* ou *off* ~ 1 ou 0)
 
 Les octets fonctionnent comme des sortes d'abaques : chaque position dans l'octet
 est comme une colonne dans un abaque - elle représente un nombre qui lui est
 associé. Dans un abaque il y a habituellement une colonne pour les milliers, une
 pour les centaines, une pour les dizaines et une pour les unités. Dans un octet
 la position la plus à gauche représente 128, puis viennent 64, 32, 16, 8, 4, 2 et
-1. Au fur et à mesur que les bits (les signaux on/off) sont envoyés dans l'air,
+1. Au fur et à mesure que les bits (les signaux on/off) sont envoyés dans l'air,
 ils sont recombinés en octets par le récepteur.
 
 As-tu repéré le schéma ? ( Indice: base 2.)
 
-En ajoutant les nombres associés aux positions mise sur "on" dans un octet on
+En ajoutant les nombres associés aux positions mises sur *on* dans un octet on
 peut représenter tous les nombres entre 0 et 255. L'image ci-dessous montre
 comment ça marche avec cinq bits pour compter de 0 à 31:
 
@@ -66,22 +66,22 @@ Utiliser des octets pour encoder et décoder de l'information est très habituel
 Cela correspond à peu près à la couche de protocole du code Morse dans notre
 exemple de réseau câblé.
 
-Une super série d'xplication claires à destination des enfants (et des enseignants)
-sur "tout est octets" peut être trouvée sur le site web de `CS unplugged <http://csunplugged.org/binary-numbers/>`_
+Une super série d'explications claires à destination des enfants (et des enseignants)
+sur "tout est octet" peut être trouvée sur le site web de `CS unplugged <http://csunplugged.org/binary-numbers/>`_
 
 Addressage
 ++++++++++
 
 Le problème avec les ondes radio c'est qu'on ne peut pas transmettre directement
-à une personne. Toutepersonne avec l'antenne appropriée peut recevoir les messages
+à une personne. Toute personne avec l'antenne appropriée peut recevoir les messages
 que tu envoies. Il est donc important d'être capable de déterminer qui devrait
 recevoir les diffusions.
 
 La façon dont est conçu le module radio dans le micro:bit règle le problème de
 façon assez simple:
 
-* Il est possible de régler la radio sur des canaux différents (numéroté 0-100).
-Ça marche exactement comme les Talkie-Walkie d'enfants : tout se met sur le même
+* Il est possible de régler la radio sur des canaux différents (numérotés 0-100).
+Ça marche exactement comme les Talkie-Walkie d'enfants : tout le monde se met sur le même
 canal et tout le monde entend ce que quiconque émet sur ce canal. Tout comme
 avec les Talkie-Walkie, il peut y avoir de petites interférences entre canaux
 adjacents.
@@ -117,9 +117,9 @@ La BBC a `une  video plutôt sympa <http://www.bbc.com/earth/story/20160224-worl
 de lucioles disponible en ligne.
 
 Nous allons utiliser le module radio pour créer quelque chose se rapprochant d'un
-essaim de lucioles émettant des signaux les uns vers les autres.
+essaim de lucioles émettant des signaux les unes vers les autres.
 
-Tout d'abord on ``import radio`` pour rendre les fonctions disponibles à ton
+Tout d'abord on ``import radio`` pour rendre les fonctions disponibles pour ton
 programme en Python. Ensuite on fait appel à la fonction ``radio.on()`` pour
 allumer la radio. Puisque la radio consomme de l'énergie et de la mémoire on a
 fait en sorte que *tu* décides quand elle est allumée ou pas (il y a, évidemment,
@@ -129,14 +129,14 @@ une fonction ``radio.off()``).
 A ce moment là, le module radio est configuré avec des paramètres par défaut qui
 lui permettent d'être compatible avec d'autres plateforme qui pourrait vouloir
 interagir avec le BBC micro:bit. Il est possible de contrôler plusieurs des
-caractéristiques évaoquées plus haut (comme les canaux et l'adressage) ainsi que
+caractéristiques évoquées plus haut (comme les canaux et l'adressage) ainsi que
 la quantité d'énergie utilisée pour la diffusion des messages et la quantité de
 RAM que les message entrant dans la queue occupent. La documentation de l'API
-contient toutes les information dont tu as besoin pour configurer ta radio selon
+contient toutes les informations dont tu as besoin pour configurer ta radio selon
 tes besoins.
 
-En supposant que nous sommes contents des réglages par défaut, le moyen le plus
-simple d'envoyer un message est comme ç::
+En supposant que nous soyons contents des réglages par défaut, le moyen le plus
+simple d'envoyer un message est comme ceci::
 
     radio.send("un message")
 
@@ -148,7 +148,7 @@ caractères "un message". Recevoir un message est encore plus simple::
 Au fur et à mesure que les messages arrivent, il sont mis dans une file de
 messages. La fonction ``receive`` renvoie le plus ancien message de la queue sous
 la forme d'une chaîne de caractères, faisant ainsi de la place pour les nouveaux
-messages entrant. Si la queue de message est pleine, alors les nouveaux messages
+messages entrant. Si la queue de messages est pleine, alors les nouveaux messages
 entrant sont ignorés.
 
 C'est vraiment tout ce que ça fait! (Bien que le module radio soit également
@@ -190,7 +190,7 @@ Armé de ces connaissances, il est facile de faire des lucioles micro:bit comme 
 
 Les choses importantes se passent dans la boucle événementielle. Tout d'abord,
 on vérifie si le bouton A a été pressé et, si c'est le cas, on utilise la radio
-pour envoyer le message "flash". Puis on lit tous les messages dela queue avec
+pour envoyer le message "flash". Puis on lit tous les messages de la queue avec
 ``radio.receive()``. Si il y a un message, on dort pendant un court instant
 aléatoire (pour rendre l'affichage plus intéressant) et on utilise
 ``display.show()`` pour animer le flash de la luciole. Enfin, pour rendre le tout

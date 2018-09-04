@@ -1,16 +1,16 @@
 Boutons
 -------
 
-Jusqu'à maintenant nous avons créé du code fait faire quelque chose à l'appareil.
+Jusqu'à maintenant nous avons créé du code qui fait faire quelque chose à l'appareil.
 C'est ce qu'on appelle une *sortie* ou *output*. Cependant, nous avons aussi
 besoin que l'appareil réagisse à quelque chose.C'est ce qu'on appelle des
 *entrées* ou *inputs*.
 
 C'est facile à retenir : une sortie est ce que l'appareil fait ressortir vers
 le monde extérieur tandis qu'une entrée c'est qui provient du monde extérieur
-et entre dans  l'appareil.
+et entre dans l'appareil.
 
-Les moyen les plus évidents d'entrées sur le micro:bit sont ses deux boutons,
+Les moyens les plus évidents d'entrées sur le micro:bit sont ses deux boutons,
 nommés ``A`` et ``B``. D'une certaine façon, nous avons besoin que MicroPython
 réagisse à l'appui sur ces boutons.
 
@@ -21,21 +21,18 @@ C'est extrêmement simple::
     sleep(10000)
     display.scroll(str(button_a.get_presses()))
 
-Tout ce que fait ce script c'est de dormir pendant dix milles millisecondes,
+Tout ce que fait ce script c'est de dormir pendant dix mille millisecondes,
 (c'est-à-dire 10 secondes) et ensuite de faire défiler le nombre d'appuis sur le
 bouton ``A``. C'est tout!
-
-While it's a pretty useless script, it introduces a couple of interesting new
-ideas:
 
 Bien que ce soit un script plutôt inutile, il montre quelques nouvelles idées
 intéressantes :
 
-#. La *fonction* ``sleep`` fait dormir le micro:bitpendant un certain nombre
+#. La *fonction* ``sleep`` fait dormir le micro:bit pendant un certain nombre
    de millisecondes. Si tu veux une pause dans ton programme, c'est ce qu'il
    faut faire. Une *fonction* est comme une *méthode* mais elle n'est pas attachée
    par un point à un *objet*.
-#. Il y un objetc nommé ``button_a`` et il permet d'obtenir le nombre de fois où
+#. Il y un objet nommé ``button_a`` et il permet d'obtenir le nombre de fois où
    il a été pressé avec la *méthode* ``get_presses``.
 
 Puisque ``get_presses`` renvoie une valeur numérique et que ``display.scroll``
@@ -45,7 +42,7 @@ raccourci pour *string* qui signifie chaîne en anglais). Cette fonction convert
 son argument en une chaîne de caractères.
 
 La troisième ligne est un peu comme un oignon. Si les parenthèses sont les
-couches de l'onion alors tu remarqueras que ``display.scroll`` contient ``str``
+couches de l'oignon alors tu remarqueras que ``display.scroll`` contient ``str``
 qui lui-même contient ``button_a.get_presses``. Python essaye d'interpréter
 d'abord ce qui se trouve le plus à l'intérieur, puis remonte les couches vers
 l'extérieur. On appelle ça en anglais *nesting* (imbrication)- qui est l'équivalent en
@@ -108,16 +105,11 @@ comme ça ::
         Vérifier qu'il n'y a pas de grenouille près de l'étang
         Vérifier le niveau d'essence dans la tondeuse
 
-It's obvious that the main tasks are broken down into sub-tasks that are
-*indented* underneath the main task to which they are related. So ``Eggs``,
-``Bacon`` and ``Tomatoes`` are obviously related to ``Shopping``. By indenting
-things we make it easy to see, at a glance, how the tasks relate to each other.
-
 Il est évident que les tâches principales sont divisées en sous-tâches qui sont
 *indentées* en-dessous de la tâche principale à laquelle elles sont reliées. Ainsi
 ``Oeufs``, ``Bacon`` et ``Tomates`` sont clairement reliés à ``Courses``. En
 indentant les lignes, on permet facilement de voir en un coup d'oeil comment les
-différente tâches sont relièes entres elles.
+différentes tâches sont reliées entres elles.
 
 Là encore on parle de *nesting* (imbrication). On utilise l'imbrication pour
 définir des blocs de code comme ça ::
@@ -134,8 +126,9 @@ l'appareil a démarré.
 
 La ligne ``while running_time() < 10000:`` vérifie si le temps écoulé est
 inférieur à 10000 millisecondes (c'est-à-dire 10 secondes). Tant que c'est le cas,
-il affichera ``Image.ASLEEP``. Remarque comme c'est indenté en dessous de
-l'instruction ``while`` comme dans notre *liste de choses à faire*.
+il affichera ``Image.ASLEEP``. Remarque la façon dont le code est
+indenté en dessous de l'instruction ``while`` comme dans notre *liste de choses
+à faire*.
 
 Evidemment, si le temps écoulé est supérieur ou égal à 1000 millisecondes alors
 l'affichage montrera ``Image.SURPRISED``. Pourquoi ? Parce que la condition du
@@ -177,14 +170,10 @@ trouver comment l'améliorer)::
 
     display.clear()
 
-Can you see how we check what buttons are pressed? We used ``if``,
-``elif`` (short for "else if") and ``else``. These are called *conditionals*
-and work like this::
-
 As-tu vu comment on vérifie quel bouton est pressé ? On utilise ``if``
 (qui veut dire *si*), ``elif`` (qui veut dire *autre si*) et ``else`` (qui veut
 dire *sinon*). Ce sont des *instructions conditionnelles* et elles marchent
-comme ça ::
+comme ça::
     if quelque chose est vrai (``True``):
         # fais un truc
     elif autre chose est vrai (``True``):
@@ -195,7 +184,7 @@ comme ça ::
 C'est très proche de l'anglais !
 
 La méthode ``is_pressed`` ne renvoie que deux résultats possibles : ``True`` ou
-``False``. Si tu appuie sur le bouton, elle renvoie ``True``, sinon elle renvoie
+``False``. Si tu appuies sur le bouton, elle renvoie ``True``, sinon elle renvoie
 ``False``.Finalement, exprimé en français, le code ci-dessus dit : "Pour toujours,
 si le bouton A est pressé montre un visage joyeux, sinon, si le bouton B est pressé
 sort de la boucle, sinon montre un visage triste." On peut sortir de la boucle
@@ -204,8 +193,8 @@ infinie avec l'instruction ``break``.
 A la toute fin, lorsque notre cyber-animal est mort, on efface l'affichage (avec
 la méthode ``clear``).
 
-Peux-tu trouver des façons de rendre ce jeu moins tragique ? Comme pourrais-tu
+Peux-tu trouver des façons de rendre ce jeu moins tragique ? Comment pourrais-tu
 vérifier que les deux boutons sont pressés ? (Indice : Pyhon possède des opérateurs
-logiques : ``and`` -> *et* ; ``or`` -> *ou* ; ``not`` -> *non*)
+logiques : ``and`` -> *et* ; ``or`` -> *ou* ; ``not`` -> *contraire de*)
 
 .. footer:: The image of Matrioshka dolls is licensed CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=69402

@@ -16,7 +16,7 @@ Cette documentation comprend des leçons pour les enseignants et une documentati
 de l'API pour les développeurs ( regarde l'index sur la gauche ). Nous espérons
 que tu aimeras développer en MicroPython pour le BBC micro:bit.
 
-Si tu es un programmeur débutant, un enseignant où si tu ne sais pas par quoi
+Si tu es un programmeur débutant, un enseignant ou si tu ne sais pas par quoi
 commencer, vas voir les tutoriels.
 
 .. image:: comic.png

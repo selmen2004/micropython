@@ -1,23 +1,23 @@
 Réseau
 -------
 
-Il est possible de connecter des appareil pour qu'ils s'envoyent et recevoivent
+Il est possible de connecter des appareils pour qu'ils s'envoient et reçoivent
 des messages l'un de l'autre.
 
 Travailler en réseau est difficile et c'est ce que montre le programme décrit
 plus bas. Cependant, le bon côté de ce projet est qu'il contient tous les aspects
-classique de la programmation en réseau que tu as besoin de connaître. Il est
+classiques de la programmation en réseau que tu as besoin de connaître. Il est
 aussi remarquablement simple et amusant.
 
 Mais d'abord, décrivons le cadre...
 
-connexion
+Connexion
 ++++++++++
 
-Imagine un réseau comme une série de couches. Tout en bas il y a les aspect les
+Imagine un réseau comme une série de couches. Tout en bas il y a les aspects les
 plus fondamentaux de la communication: il doit y avoir des sortes de chemins pour
 qu'un signal se rende d'un appareil à un autre. Parfois ceci est obtenu par des
-connexion radio, mais dans cet exemple nous allons simplement utiliser deux câbles.
+connexions radio, mais dans cet exemple nous allons simplement utiliser deux câbles.
 
 .. image:: network.png
 
@@ -30,7 +30,7 @@ pour l'entrée. La sortie de l'un des deux appareils est connectée à l'entrée
 l'autre. C'est un peu comme savoir dans quel sens tenir un combiné de téléphone -
 un côté a un microphone (l'entrée) et l'autre un haut-parleur (la sortie).
 L'enregistrement de ta voix par ton microphone est retransmise par le haut-parleur
-de ton interlocuteur. Si tu tiens le téléphone à l'envers, tu obtiendra un
+de ton interlocuteur. Si tu tiens le téléphone à l'envers, tu obtiendras un
 résultat bizarre!
 
 C'est exactement la même chose dans cet exemple : tu dois connecter les câbles
@@ -57,8 +57,8 @@ Protocole
 
 Si tu rencontres la Reine un jour, il y a des attentes sur le comportement que tu
 devras adopter. Par exemple, lorsqu'elle arrive tu dois faire une révérence, si
-elle te tend la main, serre la poliement, adresse-toi à elle en disant "votre
-majesté" et après "madame" et ainsi de suite. Cet ensemble de règle s'appelle le
+elle te tend la main, serre-la poliement, adresse-toi à elle en disant "votre
+majesté" et après "madame" et ainsi de suite. Cet ensemble de règles s'appelle le
 protocole royal. Un protocole explique comment se comporter dans une situation
 particulière (comme celle de ta rencontre avec la Reine). Un protocole est
 pré-défini pour s'assurer que tout le monde comprend ce qu'il se passe avant
@@ -74,9 +74,9 @@ utilisé par le World Wide Web.
 
 Un autre protocole célèbre pour l’envoi de messages (qui précède les ordinateurs)
 est le code Morse. Il définit comment envoyer des messages basés sur des
-caractères via des signaux on / off de longues ou courtes durées. Souvent, ces
+caractères via des signaux on / off de longues ou de courtes durées. Souvent, ces
 signaux sont joués comme des bips. Les longues durées sont appelées des tirets
-(`` -``) alors que les durées courtes sont des points (`` .``).
+(`` - ``) alors que les durées courtes sont des points (`` . ``).
 En combinant des tirets et des points, Morse définit un moyen d'envoyer des
 caractères.Par exemple, voici comment est défini l'alphabet Morse standard:
 
@@ -93,7 +93,7 @@ caractères.Par exemple, voici comment est défini l'alphabet Morse standard:
 Compte tenu du tableau ci-dessus, pour envoyer le caractère "H" le signal est
 allumé quatre fois pendant une courte durée, indiquant quatre points (`` .... ``).
 Pour la lettre "L" le signal est également allumé quatre fois, mais le deuxième
-signal a un durée plus longue (`` .- .. ``).
+signal a une durée plus longue (`` .- .. ``).
 
 Evidemment, le timing du signal est important: il faut pouvoir distinguer un point
 d'un tiret. C'est un autre point d'un protocole, se mettre d'accord sur de
@@ -106,7 +106,7 @@ tout le monde. Dans cet exemple nous allons juste dire que:
 * Une pause / trou supérieure à 500 millisecondes dans le signal indique la fin d’un caractère.
 
 De cette manière, l’envoi d’une lettre "H" est défini comme quatre signaux "on"
-pas plus long que  250 millisecondes chacun, suivi d'une pause supérieure à
+pas plus long que 250 millisecondes chacun, suivi d'une pause supérieure à
 500 millisecondes (indiquant la fin du caractère).
 
 Message
@@ -114,7 +114,7 @@ Message
 
 Nous sommes enfin à un stade où nous pouvons construire un message - un message
 qui signifie quelque chose pour nous les humains. C'est la couche supérieure de
-notre *pile réseau*
+notre *pile réseau*.
 
 En utilisant le protocole défini ci-dessus, je peux envoyer la séquence de
 signaux suivante au travers du câble physique à l'autre micro:bit ::
@@ -132,7 +132,7 @@ des messages. Bien que HTTP soit intéressant * la plupart des gens * ne le
 savent pas et laissent leur navigateur Web le gèrer - la *pile réseau *
 sous-jacente du World Wide Web est cachée (comme il se doit).
 
-Alors, quelle sorte d'application devrions-nous écrire pour le micro BBC: bit?
+Alors, quelle sorte d'application devrions-nous écrire pour le BBC micro:bit?
 Comment devrait-elle fonctionner, du point de vue de l'utilisateur?
 
 De toute évidence, pour envoyer un message, vous devez pouvoir saisir des points
@@ -147,7 +147,7 @@ Le Résultat Final
 +++++++++++++++++
 
 Voici le programme, dans toute sa splendeur et annoté avec plein de commentaires
-pour que vous puissiez voir ce qui se passe ::
+pour que tu puisses voir ce qui se passe ::
 
     from microbit import *
     import music
@@ -225,25 +225,24 @@ pour que vous puissiez voir ce qui se passe ::
     buffer = ''
     # Contient le Morse traduit en caractères.
     message = ''
-    # Le temps depuis lequel l'appareil a ttendu le prochain appui sur une touche.
+    # Le temps depuis lequel l'appareil a attendu le prochain appui sur une touche.
     debut_attente = running_time()
 
 
     # Met l'appareil dans une boucle pour attendre et réagir aux appuis sur un
     # bouton
     while True:
-        # Work out how long the device has been attente for a keypress.
         # Détermine le temps que l'appareil a attendu l'appui
         attente = running_time() - debut_attente
         # Réinitialise l'horodatage de temp_presse
         temps_touche_presse = None
-        # Si le bouton A est mainteu appuyeé alors...
+        # Si le bouton A est mainteu appuyé alors...
         while button_a.is_pressed():
             # Emet un bip - c'est du code Morse tu sais ;-)
             music.pitch(880, 10)
             # Met le pin1 (sortie) sur "on"
             pin1.write_digital(1)
-            # ...et si il n'y a pas encor de  temps_touche_presse alors on le met maintenant!
+            # ...et si il n'y a pas encore de temps_touche_presse alors on le met maintenant!
             if not temps_touche_presse:
                 temps_touche_presse = running_time()
         # Alternativment, si le pin2 (input) reçoit un signal, on fait comme  si

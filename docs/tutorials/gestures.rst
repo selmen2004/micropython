@@ -19,7 +19,7 @@ MicroPython est capable de reconnaître les gestes suivants:
 Les gestes sont toujours représentés par des chaînes de caractères.
 
 Pour obtenir le geste effectué, on utilise la méthode ``accelerometer.current_gesture``.
-Son résultats est l'un des noms de gestes listés ci-dessus. Par exemple, ce
+Son résultats est l'un des noms de geste listés ci-dessus. Par exemple, ce
 programme rendra votre appareil heureux seulement lorsque sa face est tournée
 vers le haut ::
 
@@ -33,13 +33,13 @@ vers le haut ::
             display.show(Image.ANGRY)
 
 Encore une fois, puisque nous voulons que l'appareil réagisse à des circomstances
-changeantes, nous utilisons une voucle ``while``. A l'intérieur du coprs de la
+changeantes, nous utilisons une boucle ``while``. A l'intérieur du corps de la
 boucle, le geste est lu et stocké dans ``geste``. L'instruction conditionnelle
 ``if`` verifie si ``geste`` est égal à ``face up`` (Python utilise ``==`` pour
 tester une égalité car un simple signe égal ``=`` est utilisé pour l'affectation -
-tout comme nous affectons le geste lu à l'objet ``geste``). Si le geste est égal
-à ``face up`` alors on utilise l'affichage pour montrer un visage heureux. Sinon,
-l'appareil a l'air mécontent.
+tout comme lorsque nous affectons le geste lu à l'objet ``geste``). Si le geste
+est égal à ``face up`` alors on utilise l'affichage pour montrer un visage heureux.
+Sinon, l'appareil a l'air mécontent.
 
 Magic-8
 +++++++
@@ -79,7 +79,7 @@ qu'elle nous révèle la vérité. C'est plutôt facile à programmer::
             sleep(1000)
             display.scroll(random.choice(reponses))
 
-La plus grande partie du programme une liste nommée ``réponses``. Le jeu se
+La plus grande partie du programme est une liste nommée ``reponses``. Le jeu se
 trouve dans la boucle ``while`` à la fin.
 
 L'état  par défaut du jeu est l'affichage du caractère ``"8"``. Le programme doit
@@ -87,7 +87,7 @@ détecter si le micro:bit a été secoué. La méthode ``was_gesture`` utilise s
 argument (dans ce cas ``shake`` puique l'on veut détecter une secousse) pour
 retourner un ``True`` ou un ``False``. Si l'appareil a été secoué, l'instruction
 ``if`` exécutera le bloc de code dans lequel l'écran est effacé pendant une seconde
-(de façon à ce que l'appareil semble réfléchir à ta question) et affiche une 
+(de façon à ce que l'appareil semble réfléchir à ta question) et affiche une
 réponse choisie au hasard.
 
 Pourquoi ne pas lui demander si c'est le meilleurs programme jamais écrit ? Que

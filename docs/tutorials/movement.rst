@@ -9,7 +9,7 @@ axes :
 * Z - le mouvement haut et bas.
 
 Il y a une méthode pour chaque axe qui renvoie un nombre positif ou négatif qui
-indique une mesure en milli-g. Lorsque la lecture est de 0, tu est "aligné" selon
+indique une mesure en milli-g. Lorsque la lecture est de 0, tu es "aligné" selon
 cet axe.
 
 Par exemple, voici un "niveau à bulle" très simple qui utilise ``get_x`` pour
@@ -27,16 +27,16 @@ mesurer l'aligmenet de l'appareil selon l'axe X::
             display.show("-")
 
 Si tu tiens l'appareil horizontalement il devrait afficher ``-``; en revanche,
-si tu l'incline vers la gauche ou vers la droite il devrait afficher ``G`` ou
+si tu l'inclines vers la gauche ou vers la droite il devrait afficher ``G`` ou
 ``D`` respectivement.
 
 Nous voulons que l'appareil réagisse aux changement en permanence, donc nous
-utilisons une boucle ``while`` infinie. La prmière chose que l'on fait *dans
+utilisons une boucle ``while`` infinie. La première chose que l'on fait *dans
 le corps de cette boucle* est une mesure selon l'axe X que l'on nomme ``lecture``.
 L'accéléromètre étant *tellement* sensible j'ai mis une  marge de +/-20 pour le
-niveau. L'instruction ``else`` signifie que si ``lecture`` est entre -20 et 20
-alors on considère qu'on est de niveau. Pour chacune des conditions on utilise
-l'affichage pour montrer le caractère approprié.
+niveau. L'instruction ``else`` signifie que si ``lecture`` n'est pas entre -20
+et 20 alors on considère qu'on n'est pas de niveau. Pour chacune des conditions
+on utilise l'affichage pour montrer le caractère approprié.
 
 Il y a aussi une méthode ``get_y`` pour l'axe Y et une méthode ``get_z`` pour
 l'axe Z.
@@ -49,7 +49,7 @@ accéléromètres pour t'aider à tourner et à te déplacer dans les jeux.
 Chaos musical
 ++++++++++++++
 
-L'un des aspect les plus merveilleux du MicroPython sur le BBC micro:bit est la
+L'un des aspects les plus merveilleux du MicroPython sur le BBC micro:bit est la
 façon dont il te permet facilement de relier les différentes possiblités de
 l'appareil entres elles. Par exemple, transformons-le en un instrument de musique
 (en quelque sorte)
@@ -79,12 +79,9 @@ l'axe Y.
 
 C'est tout!
 
-Incline l'appareil en ava,t et en arrière. Si la lecture de l'inclinaison sur
+Incline l'appareil en avant et en arrière. Si la lecture de l'inclinaison sur
 l'axe Y est positive, cela changera le ton joué par le micro:bit.
 
-Imagine a whole symphony orchestra of these devices. Can you play a tune? How
-would you improve the program to make the micro:bit sound more musical?
-
 Imagine un orchestre symphonique complet de ces appareil. Peux-tu jouer une
-mélodie ? Comment pourrais-tu améliorer le program pour que le micro:bit joue
+mélodie ? Comment pourrais-tu améliorer le programme pour que le micro:bit joue
 de façon plus musicale ?
