@@ -1,249 +1,256 @@
-Storage
--------
+Stockage
+--------
 
-Sometimes you need to store useful information. Such information is stored as
-data: representation of information (in a digital form when stored on
-computers). If you store data on a computer it should persist, even if you
-switch the device off and on again.
+Parfois, vous devez stocker des informations utiles. Ces informations sont stockées sous la forme
+données: représentation des informations (sous forme numérique lorsqu’elles sont stockées sur
+des ordinateurs). Si vous stockez des données sur un ordinateur, elles devraient persister, même si vous
+éteignez et rallumez l'appareil.
 
-Happily MicroPython on the micro:bit allows you to do this with a very simple
-file system. Because of memory constraints **there is approximately 30k of
-storage available** on the file system.
-
-What is a file system?
-
-It's a means of storing and organising data in a persistent manner - any data
-stored in a file system should survive restarts of the device. As the name
-suggests, data stored on a file system is organised into files.
-
-.. image:: files.jpg
-
-A computer file is a named digital resource that's stored on a file system.
-Such resources contain useful information as data. This is exactly how a
-paper file works. It's a sort of named container that contains useful
-information. Usually, both paper and digital files are named to indicate what
-they contain. On computers it is common to end a file with a ``.something``
-suffix. Usually, the "something" indicates what type of data is used to
-represent the information. For example, ``.txt`` indicates a text file,
-``.jpg`` a JPEG image and ``.mp3`` sound data encoded as MP3.
-
-Some file systems (such as the one found on your laptop or PC) allow you to
-organise your files into directories: named containers that group related files
-and sub-directories together. However, *the file system provided by MicroPython
-is a flat file system*. A flat file system does not have directories - all
-your files are just stored in the same place.
-
-The Python programming language contains easy to use and powerful ways in which
-to work with a computer's file system. MicroPython on the micro:bit implements
-a useful subset of these features to make it easy to read and write files on
-the device, while also providing consistency with other versions of Python.
+Heureusement, MicroPython sur le micro: bit vous permet de le faire avec un très simple
+système de fichiers. En raison des contraintes de mémoire **, il y a environ 30k de
+mémoire disponible ** sur le système de fichiers.
 
 .. warning::
 
-    Flashing your micro:bit will DESTROY ALL YOUR DATA since it re-writes all
-    the flash memory used by the device and the file system is stored in the
-    flash memory.
+    Le système de fichiers micropython ne doit pas être confondu
+    avec le mode de stockage de masse micro: bit qui présente l’appareil comme une clé USB.
+    Le mode de stockage de masse n’est conçu que pour la copie d’un fichier HEX.
+    voir les fichiers que vous créez en utilisant le système de fichiers apparaissant sur le lecteur MICROBIT.
 
-    However, if you switch off your device the data will remain intact until
-    you either delete it or re-flash the device.
+Qu'est-ce qu'un système de fichiers?
 
-Open Sesame
+C'est un moyen de stocker et d'organiser les données de manière persistante - toutes les données
+stockés dans un système de fichiers doivent survivre aux redémarrages du périphérique. Comme le nom
+suggère, les données stockées sur un système de fichiers sont organisées en fichiers.
+
+.. image :: files.jpg
+
+Un fichier informatique est une ressource numérique nommée qui est stockée sur un système de fichiers.
+Ces ressources contiennent des informations utiles sous forme de données. C'est exactement comme ça
+fichier papier fonctionne. C'est une sorte de conteneur nommé qui contient des informations utiles.
+information. Habituellement, les fichiers papier et numériques sont nommés pour indiquer
+ils contiennent. Sur les ordinateurs, il est courant de terminer un fichier avec un fichier `` .something``
+suffixe. Habituellement, le "quelque chose" indique quel type de données est utilisé pour
+représenter l'information. Par exemple, `` .txt`` indique un fichier texte,
+`` .jpg`` une image JPEG et des données audio `` .mp3`` encodées au format MP3.
+
+Certains systèmes de fichiers (tels que celui présent sur votre ordinateur portable ou votre PC) vous permettent de
+Organisez vos fichiers dans des répertoires: des conteneurs nommés qui regroupent les fichiers associés.
+et sous-répertoires ensemble. Cependant, * le système de fichiers fourni par MicroPython
+est un système de fichiers à plat *. Un système de fichiers à plat n'a pas de répertoires - tous
+vos fichiers sont simplement stockés au même endroit.
+
+Le langage de programmation Python contient des moyens faciles à utiliser et puissants pour
+travailler avec le système de fichiers d'un ordinateur. MicroPython sur les implémentations micro: bit
+un sous-ensemble utile de ces fonctionnalités pour faciliter la lecture et l'écriture de fichiers sur
+le périphérique, tout en assurant la cohérence avec les autres versions de Python.
+
+.. Attention::
+
+    Le clignotement de votre micro: bit détruira TOUTES VOS DONNEES car il réécrit tout
+    la mémoire flash utilisée par l'appareil et le système de fichiers est stockée dans le
+    mémoire flash.
+
+    Cependant, si vous éteignez votre appareil, les données resteront intactes jusqu'à ce que
+    soit vous le supprimez, soit le flash de l'appareil.
+
+Sésame ouvre-toi
 +++++++++++
 
-Reading and writing a file on the file system is achieved by the ``open``
-function. Once a file is opened you can do stuff with it until you close it
-(analogous with the way we use paper files). It is essential you close a file
-so MicroPython knows you've finished with it.
+La lecture et l’écriture d’un fichier sur le système de fichiers est réalisée par le paramètre `` open``
+une fonction. Une fois qu'un fichier est ouvert, vous pouvez le faire jusqu'à ce que vous le fermiez.
+(analogue à la façon dont nous utilisons les fichiers papier). Il est essentiel de fermer un fichier
+alors MicroPython sait que vous en avez fini.
 
-The best way to make sure of this is to use the ``with`` statement like this::
+Le meilleur moyen de s'en assurer est d'utiliser l'instruction `` with`` comme ceci:
 
-    with open('story.txt') as my_file:
-        content = my_file.read()
-    print(content)
+    avec open ('story.txt') en tant que mon_fichier:
+        content = mon_fichier.read ()
+    imprimer (contenu)
 
-The ``with`` statement uses the ``open`` function to open a file and assign it
-to an object. In the example above, the ``open`` function opens the file called
-``story.txt`` (obviously a text file containing a story of some sort).
-The object that's used to represent the file in the Python code is called
-``my_file``. Subsequently, in the code block indented underneath the ``with``
-statement, the ``my_file`` object is used to ``read()`` the content of the
-file and assign it to the ``content`` object.
+L’instruction `` with`` utilise la fonction `` open`` pour ouvrir un fichier et l’affecter.
+à un objet. Dans l'exemple ci-dessus, la fonction `` open`` ouvre le fichier nommé
+`` story.txt`` (évidemment un fichier texte contenant une histoire).
+L'objet utilisé pour représenter le fichier dans le code Python est appelé
+`` mon_fichier``. Par la suite, dans le bloc de code indenté sous le caractère `` with``
+déclaration, l’objet `` my_file`` est utilisé pour `` read () `` le contenu de la
+fichier et l'assigne à l'objet `` content``.
 
-Here's the important point, *the next line containing the* ``print`` *statement
-is not indented*. The code block associated with the ``with`` statement is only
-the single line that reads the file. Once the code block associated with the
-``with`` statement is closed then Python (and MicroPython) will automatically
-close the file for you. This is called context handling and the ``open``
-function creates objects that are context handlers for files.
+Voici le point important, * la prochaine ligne contenant l'instruction * `` print`` *
+n'est pas en retrait *. Le bloc de code associé à l'instruction `` with`` est uniquement
+la seule ligne qui lit le fichier. Une fois le bloc de code associé à la
+`` avec`` est fermé, alors Python (et MicroPython) sera automatiquement
+fermez le fichier pour vous. C'est ce qu'on appelle la gestion du contexte et le `` open``
+function crée des objets qui sont des gestionnaires de contexte pour les fichiers.
 
-Put simply, the scope of your interaction with a file is defined by the code
-block associated with the ``with`` statement that opens the file.
+En termes simples, la portée de votre interaction avec un fichier est définie par le code
+bloc associé à l'instruction `` with`` qui ouvre le fichier.
 
-Confused?
+Confus?
 
-Don't be. I'm simply saying your code should look like this::
+Ne sois pas. Je dis simplement que votre code devrait ressembler à ceci:
 
-    with open('some_file') as some_object:
-        # Do stuff with some_object in this block of code
-        # associated with the with statement.
+    avec open ('some_file') en tant que some_object:
+        # Faites des choses avec some_object dans ce bloc de code
+        # associé à l'instruction with.
 
-    # When the block is finished then MicroPython
-    # automatically closes the file for you.
+    # Quand le bloc est fini, alors MicroPython
+    # ferme automatiquement le fichier pour vous.
 
-Just like a paper file, a digital file is opened for two reasons: to read its
-content (as demonstrated above) or to write something to the file. The default
-mode is to read the file. If you want to write to a file you need to tell the
-``open`` function in the following way::
+Comme un fichier papier, un fichier numérique est ouvert pour deux raisons: lire son
+contenu (comme démontré ci-dessus) ou d'écrire quelque chose dans le fichier. Le défaut
+mode est de lire le fichier. Si vous voulez écrire dans un fichier, vous devez en informer le
+`` open`` fonctionne de la manière suivante ::
 
-    with open('hello.txt', 'w') as my_file:
-        my_file.write("Hello, World!")
+    avec open ('hello.txt', 'w') en tant que mon_fichier:
+        my_file.write ("Hello, World!")
 
-Notice the ``'w'`` argument is used to set the ``my_file`` object into write
-mode. You could also pass an ``'r'`` argument to set the file object to read
-mode, but since this is the default, it's often left off.
+Notez que l'argument `` 'w'`` est utilisé pour définir l'objet `` mon_fichier`` en écriture
+mode. Vous pouvez également passer un argument `` 'r'`` pour définir l'objet fichier à lire
+mode, mais comme il s’agit du mode par défaut, il est souvent désactivé.
 
-Writing data to the file is done with the (you guessed it) ``write``
-method that takes the string you want to write to the file as an argument. In
-the example above, I write the text "Hello, World!" to a file called
+L'écriture de données dans le fichier se fait avec (vous l'avez deviné) `` write``
+méthode qui prend la chaîne que vous voulez écrire dans le fichier en tant qu'argument. Dans
+l'exemple ci-dessus, j'écris le texte "Hello, World!" dans un fichier appelé
 "hello.txt".
 
 Simple!
 
-.. note::
+.. Remarque::
 
-    When you open a file and write (perhaps several times while the file is
-    in an open state) you will be writing OVER the content of the file if it
-    already exists.
+    Lorsque vous ouvrez un fichier et écrivez (peut-être plusieurs fois pendant que le fichier est
+    dans un état ouvert) vous écrivez SUR le contenu du fichier si
+    existe déjà.
 
-    If you want to append data to a file you should first read it, store the
-    content somewhere, close it, append your data to the content and then open
-    it to write again with the revised content.
+    Si vous souhaitez ajouter des données à un fichier, vous devez d’abord le lire, enregistrez le
+    contenu quelque part, fermez-le, ajoutez vos données au contenu puis ouvrez
+    à écrire à nouveau avec le contenu révisé.
 
-    While this is the case in MicroPython, "normal" Python can open
-    files to write in "append" mode. That we can't do this on the micro:bit is
-    a result of the simple implementation of the file system.
+    Bien que ce soit le cas dans MicroPython, Python "normal" peut s'ouvrir
+    fichiers à écrire en mode "append". Que nous ne pouvons pas faire cela sur le micro: le bit est
+    résultat de la mise en œuvre simple du système de fichiers.
 
 OS SOS
 ++++++
 
-As well as reading and writing files, Python can manipulate them. You
-certainly need to know what files are on the file system and sometimes
-you need to delete them too.
+En plus de lire et d’écrire des fichiers, Python peut les manipuler. Vous
+certainement besoin de savoir quels fichiers sont sur le système de fichiers et parfois
+vous devez aussi les supprimer.
 
-On a regular computer, it is the role of the operating system (like Windows,
-OSX or Linux) to manage this on Python's behalf. Such functionality is made
-available in Python via a module called ``os``. Since MicroPython **is** the
-operating system we've decided to keep the appropriate functions in the ``os``
-module for consistency so you'll know where to find them when you use "regular"
-Python on a device like a laptop or Raspberry Pi.
+Sur un ordinateur classique, c’est le rôle du système d’exploitation (comme Windows,
+OSX ou Linux) pour gérer cela au nom de Python. Cette fonctionnalité est faite
+disponible en Python via un module appelé `` os``. Depuis MicroPython ** est ** le
+système d'exploitation, nous avons décidé de garder les fonctions appropriées dans le `` os``
+module de cohérence afin que vous sachiez où les trouver lorsque vous utilisez "régulière"
+Python sur un appareil comme un ordinateur portable ou Raspberry Pi.
 
-Essentially, you can do three operations related to the file system: list the
-files, remove a file and ask for the size of a file.
+Pour l’essentiel, vous pouvez effectuer trois opérations liées au système de fichiers:
+fichiers, supprimez un fichier et demandez la taille d’un fichier.
 
-To list the files on your file system use the ``listdir`` function. It
-returns a list of strings indicating the file names of the files on the file
-system::
+Pour lister les fichiers sur votre système de fichiers, utilisez la fonction `` listdir``. Il
+renvoie une liste de chaînes indiquant les noms de fichier des fichiers du fichier
+système::
 
-    import os
-    my_files = os.listdir()
+    importation os
+    mes_fichiers = os.listdir ()
 
-To delete a file use the ``remove`` function. It takes a string representing
-the file name of the file you want to delete as an argument, like this::
+Pour supprimer un fichier, utilisez la fonction `` remove``. Il faut une chaîne représentant
+le nom du fichier que vous voulez supprimer en argument, comme ceci:
 
-    import os
-    os.remove('filename.txt')
+    importation os
+    os.remove ('filename.txt')
 
-Finally, sometimes it's useful to know how big a file is before reading from
-it. To achieve this use the ``size`` function. Like the ``remove`` function, it
-takes a string representing the file name of the file whose size you want to
-know. It returns an integer (whole number) telling you the number of bytes the
-file takes up::
+Enfin, il est parfois utile de connaître la taille d’un fichier avant de le lire dans
+il. Pour cela, utilisez la fonction `` size``. Comme la fonction `` remove``, elle
+prend une chaîne représentant le nom du fichier dont vous voulez
+savoir. Il retourne un entier (nombre entier) vous indiquant le nombre d'octets
+fichier prend ::
 
-    import os
-    file_size = os.size('a_big_file.txt')
+    importation os
+    taille_fichier = os.size ('a_big_file.txt')
 
-It's all very well having a file system, but what if we want to put or get
-files on or off the device?
+C'est très bien d'avoir un système de fichiers, mais si on veut mettre ou obtenir
+fichiers sur ou hors de l'appareil?
 
-Just use the ``microfs`` utility!
+Il suffit d’utiliser l’utilitaire `` microfs``!
 
-File Transfer
-+++++++++++++
-
-If you have Python installed on the computer you use to program your BBC
-micro:bit then you can use a special utility called ``microfs`` (shortened to
-``ufs`` when using it in the command line). Full instructions for installing
-and using all the features of microfs can be found
-`in its documentation <https://microfs.readthedocs.io>`_.
-
-Nevertheless it's possible to do most of the things you need with just four
-simple commands::
-
-    $ ufs ls
-    story.txt
-
-The ``ls`` sub-command lists the files on the file system (it's named after
-the common Unix command, ``ls``, that serves the same function).
-
-::
-
-    $ ufs get story.txt
-
-The ``get`` sub-command gets a file from the connected micro:bit and saves it
-into your current location on your computer (it's named after the ``get``
-command that's part of the common file transfer protocol [FTP] that serves the
-same function).
-
-::
-
-    $ ufs rm story.txt
-
-The ``rm`` sub-command removes the named file from the file system on the
-connected micro:bit (it's named after the common Unix command, ``rm``, that
-serves the same function).
-
-::
-
-    $ ufs put story2.txt
-
-Finally, the ``put`` sub-command puts a file from your computer onto the
-connected device (it's named after the ``put`` command that's part of FTP that
-serves the same function).
-
-Mainly main.py
+Transfert de fichier
 ++++++++++++++
 
-The file system also has an interesting property: if you just flashed the
-MicroPython runtime onto the device then when it starts it's simply waiting
-for something to do. However, if you copy a special file called ``main.py``
-onto the file system, upon restarting the device, MicroPython will run the
-contents of the ``main.py`` file.
+Si vous avez installé Python sur l’ordinateur que vous utilisez pour programmer votre BBC
+micro: bit, vous pouvez utiliser un utilitaire spécial appelé `` microfs`` (abrégé en
+`` ufs`` lors de son utilisation en ligne de commande). Instructions complètes pour l'installation
+et en utilisant toutes les fonctionnalités de microfs peuvent être trouvés
+`dans sa documentation <https://microfs.readthedocs.io>` _.
 
-Furthermore, if you copy other Python files onto the file system then you can
-``import`` them as you would any other Python module. For example, if you had
-a ``hello.py`` file that contained the following simple code::
+Néanmoins, il est possible de faire la plupart des choses dont vous avez besoin avec seulement quatre
+commandes simples ::
 
-    def say_hello(name="World"):
-        return "Hello, {}!".format(name)
+    $ ufs ls
+    story.txt
 
-...you could import and use the ``say_hello`` function like this::
+La sous-commande `` ls`` répertorie les fichiers du système de fichiers (elle porte le nom suivant).
+la commande Unix commune, `` ls``, qui remplit la même fonction).
 
-    from microbit import display
-    from hello import say_hello
+::
 
-    display.scroll(say_hello())
+    $ ufs get story.txt
 
-Of course, it results in the text "Hello, World!" scrolling across the
-display. The important point is that such an example is split between two
-Python modules and the ``import`` statement is used to share code.
+La sous-commande `` get`` récupère un fichier du micro: bit connecté et l'enregistre
+dans votre emplacement actuel sur votre ordinateur (il est nommé d'après le `` get``
+commande qui fait partie du protocole de transfert de fichier commun [FTP] qui sert le
+même fonction).
 
-.. note::
-    If you have flashed a script onto the device in addition to the MicroPython
-    runtime, then MicroPython will ignore ``main.py`` and run your embedded
-    script instead.
+::
 
-    To flash just the MicroPython runtime, simply make sure the script you
-    may have written in your editor has zero characters in it. Once flashed
-    you'll be able to copy over a ``main.py`` file.
+    $ ufs rm story.txt
 
-.. footer:: The image of paper files is used under a Creative Commons License and is available here: https://www.flickr.com/photos/jenkim/2270085025
+La sous-commande `` rm`` supprime le fichier nommé du système de fichiers de la
+connecté micro: bit (il tire son nom de la commande Unix commune, `` rm``, qui
+remplit la même fonction).
+
+::
+
+    $ ufs a mis story2.txt
+
+Enfin, la sous-commande `` put`` place un fichier de votre ordinateur sur le
+périphérique connecté (il est nommé d'après la commande `` put`` qui fait partie de FTP qui
+remplit la même fonction).
+
+Principalement main.py
++++++++++++++++
+
+Le système de fichiers a aussi une propriété intéressante: si vous venez de flasher le
+MicroPython runtime sur le périphérique puis quand il démarre, il attend simplement
+pour quelque chose à faire. Cependant, si vous copiez un fichier spécial appelé `` main.py``
+sur le système de fichiers, au redémarrage du périphérique, MicroPython exécute le
+contenu du fichier `` main.py``.
+
+De plus, si vous copiez d’autres fichiers Python sur le système de fichiers, vous pouvez
+`` import`` les comme tout autre module Python. Par exemple, si vous aviez
+un fichier `` hello.py`` qui contenait le code simple suivant:
+
+    def say_hello (name = "World"):
+        retourne "Bonjour, {}!". format (nom)
+
+... vous pouvez importer et utiliser la fonction `` say_hello`` comme ceci ::
+
+    depuis l'affichage d'importation microbit
+    de bonjour dire
+
+    display.scroll (say_hello ())
+
+Bien sûr, il en résulte le texte "Hello, World!" défiler à travers le
+afficher. Le point important est qu’un tel exemple est divisé entre deux
+Les modules Python et l'instruction `` import`` sont utilisés pour partager le code.
+
+.. Remarque::
+    Si vous avez flashé un script sur le périphérique en plus du MicroPython
+    puis MicroPython ignorera `` main.py`` et lancera votre logiciel de gestion intégré.
+    script à la place.
+
+    Pour flasher uniquement le runtime de MicroPython, assurez-vous simplement que le script
+    peut avoir écrit dans votre éditeur a zéro caractères. Une fois flashé
+    vous pourrez copier un fichier `` main.py``.
+
+.. footer :: L'image des fichiers papier est utilisée sous licence Creative Commons et est disponible ici: https://www.flickr.com/photos/jenkim/2270085025
